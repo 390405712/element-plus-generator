@@ -1,0 +1,128 @@
+import { ElTable, ElTableColumn, ElEmpty, ElLoading } from 'element-plus'
+import { onMounted, ref, watch, defineComponent } from 'vue';
+import type { tableAttrs, tableOption } from './type.d'
+
+export default defineComponent({
+  name: 'TableGenerator',
+  setup(props, { expose, attrs, slots, emit }) {
+    const _attrs = attrs as tableAttrs
+    let loading: any
+    let el = new Date().getTime()
+    let show = ref(false)
+    let width = ref<number | 'auto'>(0)
+
+    onMounted(() => {
+      watch(() => _attrs.loading, (val) => {
+        if (val) {
+          loading = ElLoading.service({
+            target: `.el-table-${el}`
+          })
+        } else {
+          loading?.close()
+        }
+      }, {
+        immediate: true,
+      })
+      watch(() => _attrs.data, (val) => {
+        if (!slots?.operation || val.length === 0) return show.value = true
+        show.value = false
+        setTimeout(() => {
+          let w = 0
+          document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
+            if (i.offsetWidth > w) w = i.offsetWidth
+          })
+          width.value = w > 0 ? w + 32 : 'auto'
+          console.log(width.value);
+          show.value = true
+        })
+      }, {
+        immediate: true,
+      })
+    })
+
+
+    return () => {
+      // function renderIndexColumn() {
+      //   return <ElTableColumn type="index" fixed="left" align="left" width="60" label="序号"></ElTableColumn>
+      // }
+      // function renderSelectionColumn() {
+      //   return <ElTableColumn type="selection" fixed="left" width="60"></ElTableColumn>
+      // }
+      function renderColumn(tableOption: tableOption[]) {
+        return tableOption.map((item: tableOption) => {
+          if (['selection', 'index', 'expand'].includes(item.type!)) {
+            return <ElTableColumn type={item.type} {...item} v-slots={{...item?.slot}}/>
+          }
+          return <ElTableColumn
+            show-overflow-tooltip={true}
+            align="left"
+            {...item}
+            v-slots={{
+              default: (scope: { $index: number, row: Record<string, any> }) =>
+                item.children && item.children.length > 0
+                  ? renderColumn(item.children)
+                  : (
+                    slots[item.prop!]
+                      // ? <>{slots[item.prop]?.({ $index: scope.$index, row: scope.row,column:scope.column,store:scope.store })}</>
+                      ? <>{slots[item.prop!]?.({ $index: scope.$index, row: scope.row })}</>
+                      : (
+                        item.formatter
+                          ? <>{item.formatter({ $index: scope.$index, row: scope.row }) ?? '-'}</>
+                          : <>{scope.row[item.prop!] ?? '-'}</>
+                      )
+                  ),
+              ...item?.slot
+            }}
+          >
+          </ElTableColumn>
+        })
+      }
+      function renderTable() {
+        return (
+          <ElTable
+            stripe={true}
+            {..._attrs}
+            class={`TableGenerator el-table-${el}`}
+            v-slots={{
+              empty: () => slots?.empty
+                ? slots?.empty()
+                : <ElEmpty description="暂无数据" />,
+              append: () => slots?.append
+                ? slots?.append()
+                : ''
+            }}
+          >
+            {/* {_attrs.onSelectionChange ? renderSelectionColumn() : ''} */}
+            {/* {_attrs.showIndex === false ? '' : renderIndexColumn()} */}
+            {renderColumn(_attrs.tableOption)}
+            {slots?.operation ? <ElTableColumn fixed="right" label="操作"
+              width={width.value}
+              v-slots={{
+                default: (scope: { $index: number, row: Record<string, any> }) => <div class='content-wrapper'>{slots.operation?.({ $index: scope.$index, row: scope.row })}</div>
+              }}
+            /> : ''}
+          </ElTable>
+        )
+      }
+      function renderOriginTable() {
+        return (
+          <ElTable
+            {...attrs}
+            class={`TableGenerator el-table-${el}`}
+          >
+            {/* {_attrs.onSelectionChange ? renderSelectionColumn() : ''} */}
+            {/* {_attrs.showIndex === false ? '' : renderIndexColumn()} */}
+            <ElTableColumn fixed="right"
+              v-slots={{
+                default: (scope: { $index: number, row: Record<string, any> }) => <div style="display:inline-block;opacity:0" class='content-wrapper content-wrapper-width'>{slots.operation?.({ $index: scope.$index, row: scope.row })}</div>
+              }}
+            />
+          </ElTable>
+        )
+      }
+      return (
+        <>{show.value ? renderTable() : renderOriginTable()}</>
+      )
+    }
+  }
+})

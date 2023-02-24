@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "lib": ["es2015", "es2016", "es2017", "dom"],
+    "target": "es5",
+    "module": "es6",
+    "outDir": "./dist/",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "element-plus-generator",
+  "version": "1.0.30",
+  "description": "基于element-plus封装的表格、表单生成器",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [
+    "vue3",
+    "element-plus",
+    "form",
+    "table",
+    "generator"
+  ],
+  "author": "NieR",
+  "license": "ISC",
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "element-plus": "^2.2.30",
+    "typescript": "^4.9.5",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "path": "^0.12.7",
+    "sass": "^1.58.2",
+    "vite": "^4.1.2",
+    "vite-plugin-dts": "^2.0.0-beta.1",
+    "vite-plugin-style-inject": "^0.0.1"
+  }
+}
