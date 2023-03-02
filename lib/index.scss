@@ -14,9 +14,11 @@
 
         &.btnItem {
           margin: 0;
-          .el-form-item__label-wrap{
+
+          .el-form-item__label-wrap {
             display: none;
           }
+
           .el-form-item__content {
             flex-wrap: nowrap;
           }
@@ -69,6 +71,14 @@
     .el-form-item__content {
       justify-content: flex-end;
     }
+  }
+
+  .expandBtn i {
+    transition: all .3s;
+  }
+
+  .expandBtn.down i {
+    transform: rotate(180deg);
   }
 
   .el-select,

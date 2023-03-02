@@ -12,10 +12,7 @@ export default defineComponent({
     const _attrs = attrs as formAttrs
     const formRef = ref<FormInstance>()
     const more = ref(false)
-    const defaultFormAttr = {
-      labelWidth: _attrs.labelWidth || 'auto',
-      column: (!isNaN(_attrs.column!) ? (_attrs.column! >= 4 ? _attrs.column : 4) : 4) as number
-    }
+    const column = (!isNaN(_attrs.column!) ? (_attrs.column! >= 4 ? _attrs.column : 4) : 4) as number
     const form: Pick<RefFormGeneratorObj, 'submit' | 'reset'> = {
       submit: () => {
         formRef.value!.validate((valid: boolean) => {
@@ -31,11 +28,11 @@ export default defineComponent({
     function setShow(bool: boolean) {
       more.value = bool
       _attrs.formOption.forEach((i, index) => {
-        if (index > defaultFormAttr.column - 2) i.show = bool
+        if (index > column - 2) i.show = bool
       })
     }
 
-    if (_attrs.formOption.length >= (defaultFormAttr.column - 2) && _attrs?.type === 'search') setShow(false)
+    if (_attrs.formOption.length >= (column - 2) && _attrs?.type === 'search') setShow(false)
 
     expose(() => ({ ...formRef.value, ...form }))
 
@@ -48,14 +45,14 @@ export default defineComponent({
           if (i?.formItem?.rules && !i?.formItem?.rules?.hasOwnProperty('trigger')) i.formItem.rules.trigger = 'blur'
         })
         return (
-          <ElForm class={`FormGenerator ${_attrs?.type === 'search' ? 'FormGeneratorSearch' : ''} ${_attrs?.type === 'dialog' ? 'FormGeneratorDialog' : ''}`} inline={_attrs?.type === 'search' ? true : false} validate-on-rule-change={false} {...defaultFormAttr} {...formAttr} ref={formRef} >
+          <ElForm class={`FormGenerator ${_attrs?.type === 'search' ? 'FormGeneratorSearch' : ''} ${_attrs?.type === 'dialog' ? 'FormGeneratorDialog' : ''}`} inline={_attrs?.type === 'search' ? true : false} validate-on-rule-change={false} label-width={_attrs.labelWidth || 'auto'} {...formAttr} ref={formRef} >
             {_attrs.formOption.map((formOption) => {
               if (!(formOption.hasOwnProperty('show') && formOption.show === false)) return <ElFormItem {...formOption.formItem}>{renderControl(formOption)}</ElFormItem>
             })}
             {formAttr.disabled === true || formAttr.noFooter || !formAttr.onSubmit
               ? ''
               : <ElFormItem
-                // style={_attrs.inline === true ? {width:`calc${100 / defaultFormAttr.column}% - 8px`} : ''}
+                // style={_attrs.inline === true ? {width:`calc${100 / column}% - 8px`} : ''}
                 class={`btnItem ${more.value ? "searchItem" : ""}`}
                 v-slots={{
                   default: () => slots?.default
@@ -63,16 +60,20 @@ export default defineComponent({
                     : _attrs?.type === 'search'
                       ? renderSearchItem()
                       : <>
-                        <ElButton onClick={(e: Event) => {
-                          function getDialogEl(el: HTMLElement): HTMLElement {
-                            if (el.parentElement!.className !== 'el-dialog') return getDialogEl(el.parentElement as HTMLDivElement)
-                            return el.parentElement!
-                          }
-                          getDialogEl(e.target as HTMLElement).querySelector<HTMLElement>('.el-dialog__headerbtn')!.click()
-                        }}>取消</ElButton>
+                        {
+                          _attrs?.type === 'dialog'
+                            ? <ElButton onClick={(e: Event) => {
+                              function getDialogEl(el: HTMLElement): HTMLElement {
+                                if (el.parentElement!.className !== 'el-dialog') return getDialogEl(el.parentElement as HTMLDivElement)
+                                return el.parentElement!
+                              }
+                              getDialogEl(e.target as HTMLElement).querySelector<HTMLElement>('.el-dialog__headerbtn')!?.click?.()
+                            }}>取消</ElButton>
+                            : ''
+                        }
                         <ElButton type="primary" onClick={form.submit}>确定</ElButton>
                       </>,
-                  label:()=>''
+                  label: () => ''
                 }}
               />
             }
@@ -106,7 +107,7 @@ export default defineComponent({
             return <ElTreeSelect clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slot }}></ElTreeSelect>
             break;
           case 'cascader':
-            return <ElCascader {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} ></ElCascader>
+            return <ElCascader {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slot }}></ElCascader>
             break;
           case 'radio':
             return (
@@ -185,8 +186,8 @@ export default defineComponent({
           <>
             <ElButton type="primary" onClick={form.submit} icon={Search}>搜索</ElButton>
             <ElButton onClick={form.reset} icon={Refresh}>重置</ElButton>
-            {_attrs.type === 'search' && _attrs.formOption.length > (defaultFormAttr.column - 1)
-              ? <><ElButton text type="primary" onClick={() => { setShow(!more.value) }} icon={more.value ? ArrowUp : ArrowDown}>{more.value ? '收起' : '展开'}</ElButton></>
+            {_attrs.type === 'search' && _attrs.formOption.length > (column - 1)
+              ? <><ElButton text type="primary" class={`expandBtn ${more.value ? 'up' : 'down'}`} onClick={() => { setShow(!more.value) }} icon={ArrowUp}>{more.value ? '收起' : '展开'}</ElButton></>
               : ''
             }
           </>

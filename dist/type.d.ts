@@ -61,7 +61,7 @@ export declare interface formAttrs {
   noFooter?: boolean
   type?: 'search' | 'dialog'
   column?: number
-  slot?: Record<string, (() => JSX.Element | string | void) | string>
+  slot?: Record<string, ((arg0: any) => JSX.Element | string | void) | string>
 }
 
 /**
@@ -89,7 +89,7 @@ export declare interface formOption {
   control?: {
     [key: string]: any
     option?: option[]
-    slot?: Record<string, (() => JSX.Element | string | void) | string>
+    slot?: Record<string, ((arg0: any) => JSX.Element | string | void) | string>
   }
 }
 
@@ -117,7 +117,7 @@ export declare interface tableOption {
   type?: 'selection' | 'index' | 'expand'
   prop?: string
   label?: string
-  slot?: Record<string, (() => JSX.Element | string | void) | string>
+  slot?: Record<string, ((arg0: any) => JSX.Element | string | void) | string>
   children?: tableOption[]
 }
 
@@ -131,10 +131,10 @@ export declare type option = {
   [key: string]: any
   label?: string
   value: string,
-  slot: Record<string, (() => JSX.Element | string | void) | string>
+  slot: Record<string, ((arg0: any) => JSX.Element | string | void) | string>
 } | {
   [key: string]: any
   label: string
   value: string,
-  slot?: Record<string, (() => JSX.Element | string | void) | string>
+  slot?: Record<string, ((arg0: any) => JSX.Element | string | void) | string>
 }
