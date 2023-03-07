@@ -1,5 +1,5 @@
 import { ElTable, ElTableColumn, ElEmpty, ElLoading } from 'element-plus'
-import { onMounted, ref, watch, defineComponent } from 'vue';
+import { onMounted, ref, watch, defineComponent, nextTick } from 'vue';
 import type { tableAttrs, tableOption } from './type.d'
 
 export default defineComponent({
@@ -10,34 +10,33 @@ export default defineComponent({
     let el = new Date().getTime()
     let show = ref(false)
     let width = ref<number | 'auto'>(0)
-
-    onMounted(() => {
-      watch(() => _attrs.loading, (val) => {
-        if (val) {
+    watch(() => _attrs.loading, (val) => {
+      if (val) {
+        nextTick(() => {
           loading = ElLoading.service({
             target: `.el-table-${el}`
           })
-        } else {
-          loading?.close()
-        }
-      }, {
-        immediate: true,
-      })
-      watch(() => _attrs.data, (val) => {
-        if (!slots?.operation || val.length === 0) return show.value = true
-        show.value = false
-        setTimeout(() => {
-          let w = 0
-          document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
-            if (i.offsetWidth > w) w = i.offsetWidth
-          })
-          width.value = w > 0 ? w + 32 : 'auto'
-          console.log(width.value);
-          show.value = true
         })
-      }, {
-        immediate: true,
+      } else {
+        loading?.close()
+      }
+    }, {
+      immediate: true,
+    })
+
+    watch(() => _attrs.data, (val) => {
+      if (!slots?.operation || val.length === 0) return show.value = true
+      show.value = false
+      nextTick(() => {
+        let w = 0
+        document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
+          if (i.offsetWidth > w) w = i.offsetWidth
+        })
+        width.value = w > 0 ? w + 32 : 'auto'
+        show.value = true
       })
+    }, {
+      immediate: true,
     })
 
 
@@ -51,7 +50,7 @@ export default defineComponent({
       function renderColumn(tableOption: tableOption[]) {
         return tableOption.map((item: tableOption) => {
           if (['selection', 'index', 'expand'].includes(item.type!)) {
-            return <ElTableColumn type={item.type} {...item} v-slots={{...item?.slot}}/>
+            return <ElTableColumn type={item.type} {...item} v-slots={{ ...item?.slot }} />
           }
           return <ElTableColumn
             show-overflow-tooltip={true}
@@ -59,7 +58,7 @@ export default defineComponent({
             {...item}
             v-slots={{
               default: (scope: { $index: number, row: Record<string, any> }) =>
-                item.children && item.children.length > 0
+                item.children && Array.isArray(item.children) && item.children.length > 0
                   ? renderColumn(item.children)
                   : (
                     slots[item.prop!]
