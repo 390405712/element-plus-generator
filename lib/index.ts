@@ -5,5 +5,5 @@ import './index.scss';
 export {
   TableGenerator,
   FormGenerator,
-  GeneratorUtils
+  GeneratorUtils,
 }

@@ -1,6 +1,6 @@
-(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as I, ref as G, watch as L, nextTick as W, createVNode as l, Fragment as y, mergeProps as h, openBlock as S, createElementBlock as M, createElementVNode as B, createTextVNode as F, isVNode as J } from "vue";
-import { ElLoading as K, ElTable as m, ElTableColumn as T, ElEmpty as Q, ElForm as X, ElFormItem as p, ElButton as Y, ElUpload as Z, ElSwitch as f, ElTimePicker as i, ElDatePicker as o, ElCheckboxGroup as q, ElCheckboxButton as O, ElCheckbox as ee, ElRadioGroup as H, ElRadioButton as ae, ElRadio as le, ElCascader as ue, ElTreeSelect as re, ElSelect as de, ElOption as ce, ElInputNumber as he, ElInput as te } from "element-plus";
-import { u as Pe } from "./utils-9d833f48.js";
+(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as I, ref as G, watch as m, nextTick as p, createVNode as l, Fragment as y, mergeProps as h, openBlock as S, createElementBlock as M, createElementVNode as B, createTextVNode as F, isVNode as J } from "vue";
+import { ElLoading as K, ElTable as L, ElTableColumn as T, ElEmpty as Q, ElForm as X, ElFormItem as W, ElButton as Y, ElUpload as Z, ElSwitch as f, ElTimePicker as i, ElDatePicker as o, ElCheckboxGroup as q, ElCheckboxButton as O, ElCheckbox as ee, ElRadioGroup as H, ElRadioButton as ae, ElRadio as le, ElCascader as ue, ElTreeSelect as re, ElSelect as de, ElOption as ce, ElInputNumber as he, ElInput as te } from "element-plus";
+import { u as Pe } from "./utils-43a47692.js";
 const Be = /* @__PURE__ */ I({
   name: "TableGenerator",
   setup(_, {
@@ -11,18 +11,18 @@ const Be = /* @__PURE__ */ I({
   }) {
     const a = w;
     let g, E = new Date().getTime(), V = G(!1), D = G(0);
-    return L(() => a.loading, (s) => {
-      s ? W(() => {
+    return m(() => a.loading, (s) => {
+      s ? p(() => {
         g = K.service({
           target: `.el-table-${E}`
         });
       }) : g == null || g.close();
     }, {
       immediate: !0
-    }), L(() => a.data, (s) => {
+    }), m(() => a.data, (s) => {
       if (!(u != null && u.operation) || s.length === 0)
         return V.value = !0;
-      V.value = !1, W(() => {
+      V.value = !1, p(() => {
         let v = 0;
         document.querySelectorAll(".content-wrapper-width").forEach(($) => {
           $.offsetWidth > v && (v = $.offsetWidth);
@@ -54,7 +54,7 @@ const Be = /* @__PURE__ */ I({
         }));
       }
       function v() {
-        return l(m, h({
+        return l(L, h({
           stripe: !0
         }, a, {
           class: `TableGenerator el-table-${E}`
@@ -81,7 +81,7 @@ const Be = /* @__PURE__ */ I({
         });
       }
       function $() {
-        return l(m, h(w, {
+        return l(L, h(w, {
           class: `TableGenerator el-table-${E}`
         }), {
           default: () => [l(T, {
@@ -201,10 +201,12 @@ const Ae = /* @__PURE__ */ I({
           default: () => [a.formOption.map((c) => {
             let t;
             if (!(c.hasOwnProperty("show") && c.show === !1))
-              return l(p, c.formItem, Te(t = $(c)) ? t : {
+              return l(W, h(c.formItem, {
+                key: c.formItem.prop
+              }), Te(t = $(c)) ? t : {
                 default: () => [t]
               });
-          }), e.disabled === !0 || e.noFooter || !e.onSubmit ? "" : l(p, {
+          }), e.disabled === !0 || e.noFooter || !e.onSubmit ? "" : l(W, {
             class: `btnItem ${E.value ? "searchItem" : ""}`
           }, {
             default: () => u != null && u.default ? l(y, null, [u.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? b() : l(y, null, [(a == null ? void 0 : a.type) === "dialog" ? l(Y, {

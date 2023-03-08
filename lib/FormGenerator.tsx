@@ -47,7 +47,7 @@ export default defineComponent({
         return (
           <ElForm class={`FormGenerator ${_attrs?.type === 'search' ? 'FormGeneratorSearch' : ''} ${_attrs?.type === 'dialog' ? 'FormGeneratorDialog' : ''}`} inline={_attrs?.type === 'search' ? true : false} validate-on-rule-change={false} label-width={_attrs.labelWidth || 'auto'} {...formAttr} ref={formRef} >
             {_attrs.formOption.map((formOption) => {
-              if (!(formOption.hasOwnProperty('show') && formOption.show === false)) return <ElFormItem {...formOption.formItem}>{renderControl(formOption)}</ElFormItem>
+              if (!(formOption.hasOwnProperty('show') && formOption.show === false)) return <ElFormItem {...formOption.formItem} key={formOption.formItem.prop}>{renderControl(formOption)}</ElFormItem>
             })}
             {formAttr.disabled === true || formAttr.noFooter || !formAttr.onSubmit
               ? ''
