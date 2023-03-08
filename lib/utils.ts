@@ -72,7 +72,6 @@ const getValidator = (
   if (Array.isArray(propVal) && propVal.length === 0) return Promise.reject(`请${(type[params.type] || '完善')}${params.formItem.label}`)
   if (!propVal) return Promise.reject(`请${(type[params.type] || '完善')}${params.formItem.label}`)
   if (!params?.formItem?.rules) return Promise.resolve();
-  console.log(11111111111);
   if (typeof params.formItem.rules.validator === 'function') {
     params.formItem.rules.validator(rule, propVal).then(() => {
       return callback()

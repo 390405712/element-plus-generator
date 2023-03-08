@@ -4,13 +4,13 @@ const c = (o, r, n, s) => {
   const e = [];
   let i = [];
   return s && (i = Object.keys(s)), o.forEach((t) => {
-    let l = {
+    let u = {
       label: typeof t == "string" ? t : t[r],
       value: typeof t == "string" ? t : t[n]
     };
-    s && i.forEach((u) => {
-      l[u] = t[u];
-    }), e.push(l);
+    s && i.forEach((l) => {
+      u[l] = t[l];
+    }), e.push(u);
   }), e;
 }, f = (o, r) => o.filter((n) => n.formItem.prop === r)[0] || {
   type: "input",
@@ -41,10 +41,10 @@ const c = (o, r, n, s) => {
     return Promise.reject(`请${s[e.type] || "完善"}${e.formItem.label}`);
   if (!((i = e == null ? void 0 : e.formItem) != null && i.rules))
     return Promise.resolve();
-  if (console.log(11111111111), typeof e.formItem.rules.validator == "function")
+  if (typeof e.formItem.rules.validator == "function")
     e.formItem.rules.validator(o, r).then(() => n()).catch((t) => {
-      var l;
-      return n(new Error(t !== "err" ? t : ((l = e == null ? void 0 : e.formItem.rules) == null ? void 0 : l.message) ?? ""));
+      var u;
+      return n(new Error(t !== "err" ? t : ((u = e == null ? void 0 : e.formItem.rules) == null ? void 0 : u.message) ?? ""));
     });
   else
     return e.formItem.rules.validator.test(r) ? Promise.resolve() : Promise.reject(e.formItem.rules.message || "格式有误");
@@ -71,4 +71,4 @@ export {
   c as g,
   p as u
 };
-//# sourceMappingURL=utils-43a47692.js.map
+//# sourceMappingURL=utils-3a97c414.js.map
