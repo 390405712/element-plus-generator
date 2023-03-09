@@ -29,18 +29,14 @@ export declare type RefFormGenerator = () => RefFormGeneratorObj
  * @param required 是否必填
  * @param message 自定义验证提示
  * @param trigger 触发时机
- * @param trigger 触发时机
- * @param field 字段
  * @param validator 校验方法
- * @param formOption formOption数组
  */
 export declare type rule = {
+  [key: string]: any
   required?: boolean
   message?: string
-  trigger: 'change' | 'blur'
-  field: string
-  validator?: (rule: any, value: string) => Promise<void>
-  formOption: formOption[]
+  trigger?: 'change' | 'blur'
+  validator?: RegExp | ((rule: rule, value: string | boolean) => Promise<void>),
 };
 
 /**
@@ -78,12 +74,7 @@ export declare interface formOption {
     [key: string]: any
     prop: string,
     label?: string,
-    rules?: {
-      [key: string]: any
-      message?: string
-      trigger?: 'blur' | 'change'
-      validator?: RegExp | ((rule: rule, value: string | boolean) => Promise<void>),
-    }
+    rules?: rule | rule[]
     style?: any
   }
   control?: {

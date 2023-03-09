@@ -1,5 +1,4 @@
-import type { FormRules } from 'element-plus';
-import type { option, formOption, rule } from './type.d';
+import type { option, formOption } from './type.d';
 /**
  * @description: 生成表单控件使用的option
  * @param arr 原始list
@@ -16,10 +15,8 @@ export declare const getOption: (arr: Record<string, string>[] | string[], label
 export declare const getLabel: (formOption: formOption[], key: string) => formOption;
 /**
  * @description: 生成校验配置
- * @param formOption 表单配置
- * @param omit 不需要验证的key
+ * @param formOption 表单配置 formOption[]
+ * @param omit 不需要验证的key  string[]
+ * @return formOption
  */
-export declare const getRules: (formOption: formOption[], omit?: string[]) => FormRules;
-export declare const CommonValidator: {
-    checkIphoneNum: (rule: rule, value: string | boolean) => Promise<void>;
-};
+export declare const setRequired: (formOption: formOption[], omit?: string[]) => formOption[];
