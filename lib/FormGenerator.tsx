@@ -64,7 +64,7 @@ export default defineComponent({
                           _attrs?.type === 'dialog'
                             ? <ElButton onClick={(e: Event) => {
                               function getDialogEl(el: HTMLElement): HTMLElement {
-                                if (el.parentElement!.className !== 'el-dialog') return getDialogEl(el.parentElement as HTMLDivElement)
+                                if (!el.parentElement!.classList.value.split(' ').includes('el-dialog')) return getDialogEl(el.parentElement as HTMLDivElement)
                                 return el.parentElement!
                               }
                               getDialogEl(e.target as HTMLElement).querySelector<HTMLElement>('.el-dialog__headerbtn')!?.click?.()
