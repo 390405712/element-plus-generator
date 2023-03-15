@@ -1,227 +1,225 @@
-(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as I, ref as G, watch as L, nextTick as j, createVNode as l, Fragment as y, mergeProps as h, openBlock as S, createElementBlock as M, createElementVNode as B, createTextVNode as F, isVNode as J } from "vue";
-import { ElLoading as K, ElTable as W, ElTableColumn as T, ElEmpty as Q, ElForm as X, ElFormItem as m, ElButton as Y, ElUpload as Z, ElSwitch as f, ElTimePicker as i, ElDatePicker as o, ElCheckboxGroup as q, ElCheckboxButton as O, ElCheckbox as ee, ElRadioGroup as H, ElRadioButton as ae, ElRadio as le, ElCascader as ue, ElTreeSelect as re, ElSelect as de, ElOption as ce, ElInputNumber as he, ElInput as te } from "element-plus";
-import { u as Pe } from "./utils-666743d5.js";
-const Be = /* @__PURE__ */ I({
+(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as J, ref as I, watch as L, nextTick as P, createVNode as l, Fragment as E, mergeProps as h, openBlock as G, createElementBlock as S, createElementVNode as M, createTextVNode as F, isVNode as K } from "vue";
+import { ElLoading as Q, ElTable as j, ElTableColumn as T, ElEmpty as X, ElForm as Z, ElFormItem as W, ElButton as U, ElUpload as f, ElSwitch as i, ElTimePicker as o, ElDatePicker as O, ElCheckboxGroup as q, ElCheckboxButton as ee, ElCheckbox as ae, ElRadioGroup as H, ElRadioButton as le, ElRadio as ue, ElCascader as re, ElTreeSelect as de, ElSelect as ce, ElOption as he, ElInputNumber as te, ElInput as ve } from "element-plus";
+import { u as Ne } from "./utils-666743d5.js";
+const Me = /* @__PURE__ */ J({
   name: "TableGenerator",
   setup(_, {
-    expose: C,
-    attrs: w,
+    expose: k,
+    attrs: s,
     slots: u,
-    emit: x
+    emit: $
   }) {
-    const a = w;
-    let g, s = new Date().getTime(), V = G(!1), D = G(0);
-    return L(() => a.loading, (E) => {
-      E ? j(() => {
-        g = K.service({
-          target: `.el-table-${s}`
+    const a = s;
+    let x, t = new Date().getTime(), g = I(!1), p = I(0);
+    return L(() => a.loading, (b) => {
+      b ? P(() => {
+        x = Q.service({
+          target: `.el-table-${t}`
         });
-      }) : g == null || g.close();
+      }) : x == null || x.close();
     }, {
       immediate: !0
-    }), L(() => a.data, (E) => {
-      if (!(u != null && u.operation) || E.length === 0)
-        return V.value = !0;
-      V.value = !1, j(() => {
-        let v = 0;
-        document.querySelectorAll(".content-wrapper-width").forEach(($) => {
-          $.offsetWidth > v && (v = $.offsetWidth);
-        }), D.value = v > 0 ? v + 32 : "auto", V.value = !0;
+    }), L(() => a.data, (b) => {
+      if (!(u != null && u.operation) || b.length === 0)
+        return g.value = !0;
+      g.value = !1, P(() => {
+        let n = 0;
+        document.querySelectorAll(".content-wrapper-width").forEach((w) => {
+          w.offsetWidth > n && (n = w.offsetWidth);
+        }), p.value = n > 0 ? n + 32 : "auto", g.value = !0;
       });
     }, {
       immediate: !0
     }), () => {
-      function E(b) {
-        return b.map((e) => ["selection", "index", "expand"].includes(e.type) ? l(T, h({
-          type: e.type
-        }, e), {
-          ...e == null ? void 0 : e.slot
+      function b(y) {
+        return y.map((c) => ["selection", "index", "expand"].includes(c.type) ? l(T, h({
+          type: c.type
+        }, c), {
+          ...c == null ? void 0 : c.slot
         }) : l(T, h({
           "show-overflow-tooltip": !0,
           align: "left"
-        }, e), {
-          default: (c) => {
-            var t;
-            return e.children && Array.isArray(e.children) && e.children.length > 0 ? E(e.children) : u[e.prop] ? l(y, null, [(t = u[e.prop]) == null ? void 0 : t.call(u, {
-              $index: c.$index,
-              row: c.row
-            })]) : e.formatter ? l(y, null, [e.formatter({
-              $index: c.$index,
-              row: c.row
-            }) ?? "-"]) : l(y, null, [c.row[e.prop] ?? "-"]);
+        }, c), {
+          default: (e) => {
+            var v;
+            return c.children && Array.isArray(c.children) && c.children.length > 0 ? b(c.children) : u[c.prop] ? l(E, null, [(v = u[c.prop]) == null ? void 0 : v.call(u, {
+              $index: e.$index,
+              row: e.row
+            })]) : c.formatter ? l(E, null, [c.formatter({
+              $index: e.$index,
+              row: e.row
+            }) ?? "-"]) : l(E, null, [e.row[c.prop] ?? "-"]);
           },
-          ...e == null ? void 0 : e.slot
+          ...c == null ? void 0 : c.slot
         }));
       }
-      function v() {
-        return l(W, h({
+      function n() {
+        return l(j, h({
           stripe: !0
         }, a, {
-          class: `TableGenerator el-table-${s}`
+          class: `TableGenerator el-table-${t}`
         }), {
-          default: () => [E(a.tableOption), u != null && u.operation ? l(T, {
+          default: () => [b(a.tableOption), u != null && u.operation ? l(T, {
             fixed: "right",
             label: "操作",
-            width: D.value
+            width: p.value
           }, {
-            default: (b) => {
-              var e;
+            default: (y) => {
+              var c;
               return l("div", {
                 class: "content-wrapper"
-              }, [(e = u.operation) == null ? void 0 : e.call(u, {
-                $index: b.$index,
-                row: b.row
+              }, [(c = u.operation) == null ? void 0 : c.call(u, {
+                $index: y.$index,
+                row: y.row
               })]);
             }
           }) : ""],
-          empty: () => u != null && u.empty ? u == null ? void 0 : u.empty() : l(Q, {
+          empty: () => u != null && u.empty ? u == null ? void 0 : u.empty() : l(X, {
             description: "暂无数据"
           }, null),
           append: () => u != null && u.append ? u == null ? void 0 : u.append() : ""
         });
       }
-      function $() {
-        return l(W, h(w, {
-          class: `TableGenerator el-table-${s}`
+      function w() {
+        return l(j, h(s, {
+          class: `TableGenerator el-table-${t}`
         }), {
           default: () => [l(T, {
             fixed: "right"
           }, {
-            default: (b) => {
-              var e;
+            default: (y) => {
+              var c;
               return l("div", {
                 style: "display:inline-block;opacity:0",
                 class: "content-wrapper content-wrapper-width"
-              }, [(e = u.operation) == null ? void 0 : e.call(u, {
-                $index: b.$index,
-                row: b.row
+              }, [(c = u.operation) == null ? void 0 : c.call(u, {
+                $index: y.$index,
+                row: y.row
               })]);
             }
           })]
         });
       }
-      return l(y, null, [V.value ? v() : $()]);
+      return l(E, null, [g.value ? n() : w()]);
     };
   }
 });
 /*! Element Plus Icons Vue v2.0.10 */
-var A = (_, C) => {
-  let w = _.__vccOpts || _;
-  for (let [u, x] of C)
-    w[u] = x;
-  return w;
-}, ve = {
-  name: "ArrowUp"
+var B = (_, k) => {
+  let s = _.__vccOpts || _;
+  for (let [u, $] of k)
+    s[u] = $;
+  return s;
 }, _e = {
+  name: "ArrowUp"
+}, be = {
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg"
-}, be = /* @__PURE__ */ B("path", {
+}, we = /* @__PURE__ */ M("path", {
   fill: "currentColor",
   d: "m488.832 344.32-339.84 356.672a32 32 0 0 0 0 44.16l.384.384a29.44 29.44 0 0 0 42.688 0l320-335.872 319.872 335.872a29.44 29.44 0 0 0 42.688 0l.384-.384a32 32 0 0 0 0-44.16L535.168 344.32a32 32 0 0 0-46.336 0z"
-}, null, -1), we = [
-  be
+}, null, -1), ye = [
+  we
 ];
-function ne(_, C, w, u, x, a) {
-  return S(), M("svg", _e, we);
+function se(_, k, s, u, $, a) {
+  return G(), S("svg", be, ye);
 }
-var ye = /* @__PURE__ */ A(ve, [["render", ne], ["__file", "arrow-up.vue"]]), ge = {
+var ge = /* @__PURE__ */ B(_e, [["render", se], ["__file", "arrow-up.vue"]]), Ee = {
   name: "Refresh"
-}, se = {
+}, xe = {
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg"
-}, Ee = /* @__PURE__ */ B("path", {
+}, ne = /* @__PURE__ */ M("path", {
   fill: "currentColor",
   d: "M771.776 794.88A384 384 0 0 1 128 512h64a320 320 0 0 0 555.712 216.448H654.72a32 32 0 1 1 0-64h149.056a32 32 0 0 1 32 32v148.928a32 32 0 1 1-64 0v-50.56zM276.288 295.616h92.992a32 32 0 0 1 0 64H220.16a32 32 0 0 1-32-32V178.56a32 32 0 0 1 64 0v50.56A384 384 0 0 1 896.128 512h-64a320 320 0 0 0-555.776-216.384z"
-}, null, -1), xe = [
-  Ee
+}, null, -1), Ve = [
+  ne
 ];
-function Ve(_, C, w, u, x, a) {
-  return S(), M("svg", se, xe);
+function $e(_, k, s, u, $, a) {
+  return G(), S("svg", xe, Ve);
 }
-var $e = /* @__PURE__ */ A(ge, [["render", Ve], ["__file", "refresh.vue"]]), ke = {
+var ke = /* @__PURE__ */ B(Ee, [["render", $e], ["__file", "refresh.vue"]]), Ce = {
   name: "Search"
-}, Ce = {
+}, pe = {
   viewBox: "0 0 1024 1024",
   xmlns: "http://www.w3.org/2000/svg"
-}, De = /* @__PURE__ */ B("path", {
+}, De = /* @__PURE__ */ M("path", {
   fill: "currentColor",
   d: "m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704z"
 }, null, -1), Ue = [
   De
 ];
-function Ye(_, C, w, u, x, a) {
-  return S(), M("svg", Ce, Ue);
+function Ye(_, k, s, u, $, a) {
+  return G(), S("svg", pe, Ue);
 }
-var Fe = /* @__PURE__ */ A(ke, [["render", Ye], ["__file", "search.vue"]]);
-function Te(_) {
-  return typeof _ == "function" || Object.prototype.toString.call(_) === "[object Object]" && !J(_);
+var Fe = /* @__PURE__ */ B(Ce, [["render", Ye], ["__file", "search.vue"]]);
+function Ie(_) {
+  return typeof _ == "function" || Object.prototype.toString.call(_) === "[object Object]" && !K(_);
 }
-const Ae = /* @__PURE__ */ I({
+const Be = /* @__PURE__ */ J({
   name: "FormGenerator",
   setup(_, {
-    expose: C,
-    attrs: w,
+    expose: k,
+    attrs: s,
     slots: u,
-    emit: x
+    emit: $
   }) {
-    const a = w, g = G(), s = G(!1), V = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, D = {
+    const a = s, x = I(), t = {}, g = I(!1), p = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, b = {
       submit: () => {
-        g.value.validate((v) => {
-          v && x("submit");
+        x.value.validate((w) => {
+          w && $("submit");
         });
       },
       reset: () => {
-        g.value.resetFields(), x("submit", "init");
+        x.value.resetFields(), $("submit", "init");
       }
     };
-    function E(v) {
-      s.value = v, a.formOption.forEach(($, b) => {
-        b > V - 2 && ($.show = v);
+    function n(w) {
+      g.value = w, a.formOption.forEach((y, c) => {
+        c > p - 2 && (y.show = w);
       });
     }
-    return a.formOption.length >= V - 2 && (a == null ? void 0 : a.type) === "search" && E(!1), C(() => ({
-      ...g.value,
-      ...D
+    return a.formOption.length >= p - 2 && (a == null ? void 0 : a.type) === "search" && n(!1), k(() => ({
+      ...x.value,
+      ...b,
+      $refs: t
     })), () => {
-      function v() {
+      function w() {
         let e = {
           ...a
         };
-        return delete e.model, delete e.formOption, a.formOption.forEach((c) => {
-          var t, n, k;
-          (t = c == null ? void 0 : c.formItem) != null && t.rules && !((k = (n = c == null ? void 0 : c.formItem) == null ? void 0 : n.rules) != null && k.hasOwnProperty("trigger")) && (c.formItem.rules.trigger = "blur");
-        }), l(X, h({
+        return delete e.model, delete e.formOption, l(Z, h({
           class: `FormGenerator ${(a == null ? void 0 : a.type) === "search" ? "FormGeneratorSearch" : ""} ${(a == null ? void 0 : a.type) === "dialog" ? "FormGeneratorDialog" : ""}`,
           inline: (a == null ? void 0 : a.type) === "search",
           "validate-on-rule-change": !1,
           "label-width": a.labelWidth || "auto"
         }, e, {
-          ref: g
+          ref: x
         }), {
-          default: () => [a.formOption.map((c) => {
-            let t;
-            if (!(c.hasOwnProperty("show") && c.show === !1))
-              return l(m, h(c.formItem, {
-                key: c.formItem.prop
-              }), Te(t = $(c)) ? t : {
-                default: () => [t]
+          default: () => [a.formOption.map((v) => {
+            let V;
+            if (!(v.hasOwnProperty("show") && v.show === !1))
+              return l(W, h(v.formItem, {
+                key: v.formItem.prop
+              }), Ie(V = y(v)) ? V : {
+                default: () => [V]
               });
-          }), e.disabled === !0 || e.noFooter || !e.onSubmit ? "" : l(m, {
-            class: `btnItem ${s.value ? "searchItem" : ""}`
+          }), e.disabled === !0 || e.noFooter || !e.onSubmit ? "" : l(W, {
+            class: `btnItem ${g.value ? "searchItem" : ""}`
           }, {
-            default: () => u != null && u.default ? l(y, null, [u.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? b() : l(y, null, [(a == null ? void 0 : a.type) === "dialog" ? l(Y, {
-              onClick: (c) => {
-                var n, k;
-                function t(U) {
-                  return U.parentElement.classList.value.split(" ").includes("el-dialog") ? U.parentElement : t(U.parentElement);
+            default: () => u != null && u.default ? l(E, null, [u.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? c() : l(E, null, [(a == null ? void 0 : a.type) === "dialog" ? l(U, {
+              onClick: (v) => {
+                var C, Y;
+                function V(D) {
+                  return D.parentElement.classList.value.split(" ").includes("el-dialog") ? D.parentElement : V(D.parentElement);
                 }
-                (k = (n = t(c.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : n.click) == null || k.call(n);
+                (Y = (C = V(v.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : C.click) == null || Y.call(C);
               }
             }, {
               default: () => [F("取消")]
-            }) : "", l(Y, {
+            }) : "", l(U, {
               type: "primary",
-              onClick: D.submit
+              onClick: b.submit
             }, {
               default: () => [F("确定")]
             })]),
@@ -229,21 +227,23 @@ const Ae = /* @__PURE__ */ I({
           })]
         });
       }
-      function $(e) {
-        var c, t, n, k, U, N, z, P, R;
-        switch (e.type) {
+      function y(e) {
+        var v, V, C, Y, D, m, A, N, z;
+        switch (t[e.formItem.prop] = I(), e.type) {
           case "input":
-            return l(te, h({
+            return l(ve, h({
+              ref: t[e.formItem.prop],
               clearable: !0,
               maxlength: 30
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(c = e == null ? void 0 : e.control) == null ? void 0 : c.slot
+              ...(v = e == null ? void 0 : e.control) == null ? void 0 : v.slot
             });
           case "input-number":
-            return l(he, h({
+            return l(te, h({
+              ref: t[e.formItem.prop],
               min: 0,
               max: 100
             }, e == null ? void 0 : e.control, {
@@ -251,7 +251,8 @@ const Ae = /* @__PURE__ */ I({
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), null);
           case "select":
-            return l(de, h({
+            return l(ce, h({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
@@ -259,7 +260,7 @@ const Ae = /* @__PURE__ */ I({
             }), {
               default: () => {
                 var r;
-                return [(r = e == null ? void 0 : e.control) == null ? void 0 : r.option.map((d) => l(ce, h(d, {
+                return [(r = e == null ? void 0 : e.control) == null ? void 0 : r.option.map((d) => l(he, h(d, {
                   key: d.value
                 }), {
                   ...d == null ? void 0 : d.slot
@@ -267,23 +268,46 @@ const Ae = /* @__PURE__ */ I({
               }
             });
           case "tree-select":
-            return l(re, h({
+            return l(de, h({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(t = e == null ? void 0 : e.control) == null ? void 0 : t.slot
+              ...(V = e == null ? void 0 : e.control) == null ? void 0 : V.slot
             });
           case "cascader":
-            return l(ue, h(e == null ? void 0 : e.control, {
+            return l(re, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(n = e == null ? void 0 : e.control) == null ? void 0 : n.slot
+              ...(C = e == null ? void 0 : e.control) == null ? void 0 : C.slot
             });
           case "radio":
-            return l(H, h(e == null ? void 0 : e.control, {
+            return l(H, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
+              modelValue: a.model[e.formItem.prop],
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
+            }), {
+              default: () => {
+                var r;
+                return [(r = e == null ? void 0 : e.control) == null ? void 0 : r.option.map((d) => l(ue, h(d, {
+                  label: d.value,
+                  key: d.label
+                }), {
+                  default: () => [d.label],
+                  ...d == null ? void 0 : d.slot
+                }))];
+              }
+            });
+          case "radio-button":
+            return l(H, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
@@ -298,8 +322,10 @@ const Ae = /* @__PURE__ */ I({
                 }))];
               }
             });
-          case "radio-button":
-            return l(H, h(e == null ? void 0 : e.control, {
+          case "checkbox":
+            return l(q, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
@@ -314,8 +340,10 @@ const Ae = /* @__PURE__ */ I({
                 }))];
               }
             });
-          case "checkbox":
-            return l(q, h(e == null ? void 0 : e.control, {
+          case "checkbox-button":
+            return l(q, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
@@ -330,107 +358,97 @@ const Ae = /* @__PURE__ */ I({
                 }))];
               }
             });
-          case "checkbox-button":
-            return l(q, h(e == null ? void 0 : e.control, {
-              modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
-            }), {
-              default: () => {
-                var r;
-                return [(r = e == null ? void 0 : e.control) == null ? void 0 : r.option.map((d) => l(O, h(d, {
-                  label: d.value,
-                  key: d.label
-                }), {
-                  default: () => [d.label],
-                  ...d == null ? void 0 : d.slot
-                }))];
-              }
-            });
           case "datetime":
-            const p = {
+            const R = {
               datetimerange: "YYYY-MM-DD hh:mm:ss",
               daterange: "YYYY-MM-DD",
               datetime: "YYYY-MM-DD hh:mm:ss",
               date: "YYYY-MM-DD"
-            }[((k = e == null ? void 0 : e.control) == null ? void 0 : k.type) || "date"];
-            return l(o, h({
+            }[((Y = e == null ? void 0 : e.control) == null ? void 0 : Y.type) || "date"];
+            return l(O, h({
+              ref: t[e.formItem.prop],
               clearable: !0,
-              format: p,
-              "value-format": p
+              format: R,
+              "value-format": R
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(U = e == null ? void 0 : e.control) == null ? void 0 : U.slot
+              ...(D = e == null ? void 0 : e.control) == null ? void 0 : D.slot
             });
           case "time":
-            return l(i, h({
+            return l(o, h({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(N = e == null ? void 0 : e.control) == null ? void 0 : N.slot
+              ...(m = e == null ? void 0 : e.control) == null ? void 0 : m.slot
             });
           case "switch":
-            return l(f, h(e == null ? void 0 : e.control, {
+            return l(i, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(z = e == null ? void 0 : e.control) == null ? void 0 : z.slot
+              ...(A = e == null ? void 0 : e.control) == null ? void 0 : A.slot
             });
           case "upload":
-            return l(Z, h(e == null ? void 0 : e.control, {
+            return l(f, h({
+              ref: t[e.formItem.prop]
+            }, e == null ? void 0 : e.control, {
               "file-list": a.model[e.formItem.prop],
               "onUpdate:file-list": (r) => a.model[e.formItem.prop] = r
             }), {
-              default: () => a.disabled ? "" : l(Y, {
+              default: () => a.disabled ? "" : l(U, {
                 type: "primary"
               }, {
                 default: () => [F("上传文件")]
               }),
-              ...(P = e == null ? void 0 : e.control) == null ? void 0 : P.slot
+              ...(N = e == null ? void 0 : e.control) == null ? void 0 : N.slot
             });
           case "txt":
-            return l(y, null, [a.model[e.formItem.prop]]);
+            return l(E, null, [a.model[e.formItem.prop]]);
           case "slot":
-            return l(y, null, [(R = u[e.formItem.prop]) == null ? void 0 : R.call(u, {
+            return l(E, null, [(z = u[e.formItem.prop]) == null ? void 0 : z.call(u, {
               form: a.model,
               data: a.model[e.formItem.prop]
             })]);
         }
       }
-      function b() {
-        return l(y, null, [l(Y, {
+      function c() {
+        return l(E, null, [l(U, {
           type: "primary",
-          onClick: D.submit,
+          onClick: b.submit,
           icon: Fe
         }, {
           default: () => [F("搜索")]
-        }), l(Y, {
-          onClick: D.reset,
-          icon: $e
+        }), l(U, {
+          onClick: b.reset,
+          icon: ke
         }, {
           default: () => [F("重置")]
-        }), a.type === "search" && a.formOption.length > V - 1 ? l(y, null, [l(Y, {
+        }), a.type === "search" && a.formOption.length > p - 1 ? l(E, null, [l(U, {
           text: !0,
           type: "primary",
-          class: `expandBtn ${s.value ? "up" : "down"}`,
+          class: `expandBtn ${g.value ? "up" : "down"}`,
           onClick: () => {
-            E(!s.value);
+            n(!g.value);
           },
-          icon: ye
+          icon: ge
         }, {
-          default: () => [s.value ? "收起" : "展开"]
+          default: () => [g.value ? "收起" : "展开"]
         })]) : ""]);
       }
-      return v();
+      return w();
     };
   }
 });
 export {
-  Ae as FormGenerator,
-  Pe as GeneratorUtils,
-  Be as TableGenerator
+  Be as FormGenerator,
+  Ne as GeneratorUtils,
+  Me as TableGenerator
 };
 //# sourceMappingURL=index.js.map

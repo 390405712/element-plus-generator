@@ -1,4 +1,4 @@
-
+import type { Ref } from 'vue'
 
 /**
  * @description: Form 方法
@@ -18,6 +18,7 @@ export declare type RefFormGeneratorObj = {
   scrollToField: () => void
   submit: () => void
   reset: () => void
+  $refs: Record<string, Ref<Record<string, any>>>
 }
 
 
