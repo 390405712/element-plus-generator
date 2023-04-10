@@ -1,11 +1,12 @@
 import { ElTable, ElTableColumn, ElEmpty, ElLoading } from 'element-plus'
 import { onMounted, ref, watch, defineComponent, nextTick } from 'vue';
-import type { tableAttrs, tableOption } from './type.d'
+import type { TableAttrs, TableOption, RefTableGeneratorObj } from './type.d'
 
 export default defineComponent({
   name: 'TableGenerator',
   setup(props, { expose, attrs, slots, emit }) {
-    const _attrs = attrs as tableAttrs
+    const RefFormGenerator = ref<RefTableGeneratorObj>()
+    const _attrs = attrs as TableAttrs
     let loading: any
     let el = new Date().getTime()
     let show = ref(false)
@@ -39,6 +40,7 @@ export default defineComponent({
       immediate: true,
     })
 
+    expose(() => (RefFormGenerator.value))
 
     return () => {
       // function renderIndexColumn() {
@@ -47,10 +49,10 @@ export default defineComponent({
       // function renderSelectionColumn() {
       //   return <ElTableColumn type="selection" fixed="left" width="60"></ElTableColumn>
       // }
-      function renderColumn(tableOption: tableOption[]) {
-        return tableOption.map((item: tableOption) => {
+      function renderColumn(tableOption: TableOption[]) {
+        return tableOption.map((item) => {
           if (['selection', 'index', 'expand'].includes(item.type!)) {
-            return <ElTableColumn type={item.type} {...item} v-slots={{ ...item?.slot }} />
+            return <ElTableColumn type={item.type} {...item} v-slots={{ ...item?.slots }} />
           }
           return <ElTableColumn
             show-overflow-tooltip={true}
@@ -70,7 +72,7 @@ export default defineComponent({
                           : <>{scope.row[item.prop!] ?? '-'}</>
                       )
                   ),
-              ...item?.slot
+              ...item?.slots
             }}
           >
           </ElTableColumn>
@@ -79,6 +81,7 @@ export default defineComponent({
       function renderTable() {
         return (
           <ElTable
+            ref={RefFormGenerator}
             stripe={true}
             {..._attrs}
             class={`TableGenerator el-table-${el}`}

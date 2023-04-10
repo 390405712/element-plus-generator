@@ -1,4 +1,8 @@
-import type { option, formOption } from './type.d';
+import type { FormOption } from './type.d';
+type option = {
+    label: string;
+    value: string;
+};
 /**
  * @description: 生成表单控件使用的option
  * @param arr 原始list
@@ -8,15 +12,10 @@ import type { option, formOption } from './type.d';
  */
 export declare const getOption: (arr: Record<string, string>[] | string[], label: string, value: string, custom?: {}) => option[];
 /**
- * @description: 获取表单配置中指定的对象
- * @param formOption 表单配置
- * @param key 指定的key
- */
-export declare const getLabel: (formOption: formOption[], key: string) => formOption;
-/**
  * @description: 生成校验配置
  * @param formOption 表单配置 formOption[]
  * @param omit 不需要验证的key  string[]
  * @return formOption
  */
-export declare const setRequired: (formOption: formOption[], omit?: string[]) => formOption[];
+export declare const setRequired: (formOption: Pick<FormOption, 'type' | 'formItem'>[], omit?: string[]) => Pick<FormOption, 'type' | 'formItem'>[];
+export {};
