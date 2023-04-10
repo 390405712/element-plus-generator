@@ -1,5 +1,5 @@
 import { ElTable, ElTableColumn, ElEmpty, ElLoading } from 'element-plus'
-import { onMounted, ref, watch, defineComponent, nextTick } from 'vue';
+import { ref, watch, defineComponent, nextTick } from 'vue';
 import type { TableAttrs, TableOption, RefTableGeneratorObj } from './type.d'
 
 export default defineComponent({

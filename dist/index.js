@@ -1,121 +1,122 @@
-(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as Z, ref as F, watch as W, nextTick as H, createVNode as r, Fragment as $, mergeProps as t, openBlock as G, createElementBlock as S, createElementVNode as T, createTextVNode as Y, isVNode as i } from "vue";
-import { ElLoading as o, ElTable as K, ElTableColumn as p, ElEmpty as O, ElForm as ee, ElFormItem as J, ElButton as D, ElUpload as ae, ElSwitch as le, ElTimePicker as re, ElDatePicker as ue, ElCheckboxGroup as Q, ElCheckboxButton as de, ElCheckbox as ce, ElRadioGroup as X, ElRadioButton as te, ElRadio as se, ElCascader as he, ElTreeSelect as be, ElSelect as ve, ElOption as ye, ElInputNumber as _e, ElInput as ne } from "element-plus";
-const Re = /* @__PURE__ */ Z({
+(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as f, ref as Y, watch as K, nextTick as Q, createVNode as l, Fragment as n, mergeProps as c, openBlock as T, createElementBlock as S, createElementVNode as M, createTextVNode as G, isVNode as i } from "vue";
+import { ElLoading as o, ElTable as X, ElTableColumn as A, ElEmpty as O, ElForm as ee, ElFormItem as Z, ElButton as U, ElUpload as ae, ElSwitch as le, ElTimePicker as ue, ElDatePicker as re, ElCheckboxGroup as p, ElCheckboxButton as de, ElCheckbox as ce, ElRadioGroup as m, ElRadioButton as he, ElRadio as te, ElCascader as ve, ElTreeSelect as se, ElSelect as _e, ElOption as be, ElInputNumber as we, ElInput as ye } from "element-plus";
+import { u as qe } from "./utils-bb88efe0.js";
+const Le = /* @__PURE__ */ f({
   name: "TableGenerator",
-  setup(h, {
-    expose: g,
-    attrs: _,
-    slots: l,
-    emit: v
+  setup(_, {
+    expose: V,
+    attrs: w,
+    slots: u,
+    emit: $
   }) {
-    const a = F(), s = _;
-    let c, b = (/* @__PURE__ */ new Date()).getTime(), E = F(!1), A = F(0);
-    return W(() => s.loading, (V) => {
-      V ? H(() => {
-        c = o.service({
-          target: `.el-table-${b}`
+    const a = Y(), g = w;
+    let h, E = (/* @__PURE__ */ new Date()).getTime(), k = Y(!1), D = Y(0);
+    return K(() => g.loading, (x) => {
+      x ? Q(() => {
+        h = o.service({
+          target: `.el-table-${E}`
         });
-      }) : c == null || c.close();
+      }) : h == null || h.close();
     }, {
       immediate: !0
-    }), W(() => s.data, (V) => {
-      if (!(l != null && l.operation) || V.length === 0)
-        return E.value = !0;
-      E.value = !1, H(() => {
-        let w = 0;
-        document.querySelectorAll(".content-wrapper-width").forEach((I) => {
-          I.offsetWidth > w && (w = I.offsetWidth);
-        }), A.value = w > 0 ? w + 32 : "auto", E.value = !0;
+    }), K(() => g.data, (x) => {
+      if (!(u != null && u.operation) || x.length === 0)
+        return k.value = !0;
+      k.value = !1, Q(() => {
+        let s = 0;
+        document.querySelectorAll(".content-wrapper-width").forEach((C) => {
+          C.offsetWidth > s && (s = C.offsetWidth);
+        }), D.value = s > 0 ? s + 32 : "auto", k.value = !0;
       });
     }, {
       immediate: !0
-    }), g(() => a.value), () => {
-      function V(x) {
-        return x.map((e) => ["selection", "index", "expand"].includes(e.type) ? r(p, t({
+    }), V(() => a.value), () => {
+      function x(b) {
+        return b.map((e) => ["selection", "index", "expand"].includes(e.type) ? l(A, c({
           type: e.type
         }, e), {
           ...e == null ? void 0 : e.slots
-        }) : r(p, t({
+        }) : l(A, c({
           "show-overflow-tooltip": !0,
           align: "left"
         }, e), {
-          default: (y) => {
-            var k;
-            return e.children && Array.isArray(e.children) && e.children.length > 0 ? V(e.children) : l[e.prop] ? r($, null, [(k = l[e.prop]) == null ? void 0 : k.call(l, {
-              $index: y.$index,
-              row: y.row
-            })]) : e.formatter ? r($, null, [e.formatter({
-              $index: y.$index,
-              row: y.row
-            }) ?? "-"]) : r($, null, [y.row[e.prop] ?? "-"]);
+          default: (t) => {
+            var y;
+            return e.children && Array.isArray(e.children) && e.children.length > 0 ? x(e.children) : u[e.prop] ? l(n, null, [(y = u[e.prop]) == null ? void 0 : y.call(u, {
+              $index: t.$index,
+              row: t.row
+            })]) : e.formatter ? l(n, null, [e.formatter({
+              $index: t.$index,
+              row: t.row
+            }) ?? "-"]) : l(n, null, [t.row[e.prop] ?? "-"]);
           },
           ...e == null ? void 0 : e.slots
         }));
       }
-      function w() {
-        return r(K, t({
+      function s() {
+        return l(X, c({
           ref: a,
           stripe: !0
-        }, s, {
-          class: `TableGenerator el-table-${b}`
+        }, g, {
+          class: `TableGenerator el-table-${E}`
         }), {
-          default: () => [V(s.tableOption), l != null && l.operation ? r(p, {
+          default: () => [x(g.tableOption), u != null && u.operation ? l(A, {
             fixed: "right",
             label: "操作",
-            width: A.value
+            width: D.value
           }, {
-            default: (x) => {
+            default: (b) => {
               var e;
-              return r("div", {
+              return l("div", {
                 class: "content-wrapper"
-              }, [(e = l.operation) == null ? void 0 : e.call(l, {
-                $index: x.$index,
-                row: x.row
+              }, [(e = u.operation) == null ? void 0 : e.call(u, {
+                $index: b.$index,
+                row: b.row
               })]);
             }
           }) : ""],
-          empty: () => l != null && l.empty ? l == null ? void 0 : l.empty() : r(O, {
+          empty: () => u != null && u.empty ? u == null ? void 0 : u.empty() : l(O, {
             description: "暂无数据"
           }, null),
-          append: () => l != null && l.append ? l == null ? void 0 : l.append() : ""
+          append: () => u != null && u.append ? u == null ? void 0 : u.append() : ""
         });
       }
-      function I() {
-        return r(K, t(_, {
-          class: `TableGenerator el-table-${b}`
+      function C() {
+        return l(X, c(w, {
+          class: `TableGenerator el-table-${E}`
         }), {
-          default: () => [r(p, {
+          default: () => [l(A, {
             fixed: "right"
           }, {
-            default: (x) => {
+            default: (b) => {
               var e;
-              return r("div", {
+              return l("div", {
                 style: "display:inline-block;opacity:0",
                 class: "content-wrapper content-wrapper-width"
-              }, [(e = l.operation) == null ? void 0 : e.call(l, {
-                $index: x.$index,
-                row: x.row
+              }, [(e = u.operation) == null ? void 0 : e.call(u, {
+                $index: b.$index,
+                row: b.row
               })]);
             }
           })]
         });
       }
-      return r($, null, [E.value ? w() : I()]);
+      return l(n, null, [k.value ? s() : C()]);
     };
   }
 });
 /*! Element Plus Icons Vue v2.1.0 */
-var M = (h, g) => {
-  let _ = h.__vccOpts || h;
-  for (let [l, v] of g)
-    _[l] = v;
-  return _;
-}, we = {
-  name: "ArrowUp"
+var B = (_, V) => {
+  let w = _.__vccOpts || _;
+  for (let [u, $] of V)
+    w[u] = $;
+  return w;
 }, ge = {
+  name: "ArrowUp"
+}, Ee = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ee = /* @__PURE__ */ T(
+}, xe = /* @__PURE__ */ M(
   "path",
   {
     fill: "currentColor",
@@ -124,18 +125,18 @@ var M = (h, g) => {
   null,
   -1
   /* HOISTED */
-), xe = [
-  Ee
+), ne = [
+  xe
 ];
-function ke(h, g, _, l, v, a) {
-  return G(), S("svg", ge, xe);
+function Ve(_, V, w, u, $, a) {
+  return T(), S("svg", Ee, ne);
 }
-var Ve = /* @__PURE__ */ M(we, [["render", ke], ["__file", "arrow-up.vue"]]), $e = {
+var $e = /* @__PURE__ */ B(ge, [["render", Ve], ["__file", "arrow-up.vue"]]), ke = {
   name: "Refresh"
-}, Ie = {
+}, Ce = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ae = /* @__PURE__ */ T(
+}, De = /* @__PURE__ */ M(
   "path",
   {
     fill: "currentColor",
@@ -144,18 +145,18 @@ var Ve = /* @__PURE__ */ M(we, [["render", ke], ["__file", "arrow-up.vue"]]), $e
   null,
   -1
   /* HOISTED */
-), Ce = [
-  Ae
+), Fe = [
+  De
 ];
-function De(h, g, _, l, v, a) {
-  return G(), S("svg", Ie, Ce);
+function Ue(_, V, w, u, $, a) {
+  return T(), S("svg", Ce, Fe);
 }
-var Fe = /* @__PURE__ */ M($e, [["render", De], ["__file", "refresh.vue"]]), Ue = {
+var Ye = /* @__PURE__ */ B(ke, [["render", Ue], ["__file", "refresh.vue"]]), Ie = {
   name: "Search"
-}, Ye = {
+}, Ge = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, pe = /* @__PURE__ */ T(
+}, Ae = /* @__PURE__ */ M(
   "path",
   {
     fill: "currentColor",
@@ -164,118 +165,118 @@ var Fe = /* @__PURE__ */ M($e, [["render", De], ["__file", "refresh.vue"]]), Ue 
   null,
   -1
   /* HOISTED */
-), Ge = [
-  pe
+), Te = [
+  Ae
 ];
-function Se(h, g, _, l, v, a) {
-  return G(), S("svg", Ye, Ge);
+function Se(_, V, w, u, $, a) {
+  return T(), S("svg", Ge, Te);
 }
-var Te = /* @__PURE__ */ M(Ue, [["render", Se], ["__file", "search.vue"]]);
-function Me(h) {
-  return typeof h == "function" || Object.prototype.toString.call(h) === "[object Object]" && !i(h);
+var Me = /* @__PURE__ */ B(Ie, [["render", Se], ["__file", "search.vue"]]);
+function Be(_) {
+  return typeof _ == "function" || Object.prototype.toString.call(_) === "[object Object]" && !i(_);
 }
-const ze = /* @__PURE__ */ Z({
+const Pe = /* @__PURE__ */ f({
   name: "FormGenerator",
-  setup(h, {
-    expose: g,
-    attrs: _,
-    slots: l,
-    emit: v
+  setup(_, {
+    expose: V,
+    attrs: w,
+    slots: u,
+    emit: $
   }) {
-    const a = _, s = F(), c = {}, b = F(!1), E = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, A = {
+    const a = w, g = Y(), h = {}, E = Y(!1), k = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, D = {
       submit: () => {
-        s.value.validate((w) => {
-          w && v("submit");
+        g.value.validate((s) => {
+          s && $("submit");
         });
       },
       reset: () => {
-        s.value.resetFields(), v("submit", "init");
+        g.value.resetFields(), $("submit", "init");
       }
     };
-    function V(w) {
-      b.value = w, a.formOption.forEach((I, x) => {
-        x > E - 2 && (I.show = w);
+    function x(s) {
+      E.value = s, a.formOption.forEach((C, b) => {
+        b > k - 2 && (C.show = s);
       });
     }
-    return a.formOption.length >= E - 2 && (a == null ? void 0 : a.type) === "search" && V(!1), g(() => ({
-      ...s.value,
-      ...A,
-      $refs: c
+    return a.formOption.length >= k - 2 && (a == null ? void 0 : a.type) === "search" && x(!1), V(() => ({
+      ...g.value,
+      ...D,
+      $refs: h
     })), () => {
-      function w() {
-        return r(ee, t({
+      function s() {
+        return l(ee, c({
           class: `FormGenerator ${(a == null ? void 0 : a.type) === "search" ? "FormGeneratorSearch" : ""} ${(a == null ? void 0 : a.type) === "dialog" ? "FormGeneratorDialog" : ""}`,
           inline: (a == null ? void 0 : a.type) === "search",
           "validate-on-rule-change": !1,
           "label-width": a.labelWidth || "auto"
         }, a, {
-          ref: s
+          ref: g
         }), {
           default: () => [a.formOption.map((e) => {
-            let y;
+            let t;
             if (!(e.hasOwnProperty("show") && e.show === !1))
-              return r(J, t(e.formItem, {
+              return l(Z, c(e.formItem, {
                 key: e.formItem.prop
-              }), Me(y = I(e)) ? y : {
-                default: () => [y]
+              }), Be(t = C(e)) ? t : {
+                default: () => [t]
               });
-          }), a.disabled === !0 || a.noFooter || !a.onSubmit ? "" : r(J, {
-            class: `btnItem ${b.value ? "searchItem" : ""}`
+          }), a.disabled === !0 || a.noFooter || !a.onSubmit ? "" : l(Z, {
+            class: `btnItem ${E.value ? "searchItem" : ""}`
           }, {
-            default: () => l != null && l.default ? r($, null, [l.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? x() : r($, null, [(a == null ? void 0 : a.type) === "dialog" ? r(D, {
+            default: () => u != null && u.default ? l(n, null, [u.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? b() : l(n, null, [(a == null ? void 0 : a.type) === "dialog" ? l(U, {
               onClick: (e) => {
-                var k, U;
-                function y(C) {
-                  return C.parentElement.classList.value.split(" ").includes("el-dialog") ? C.parentElement : y(C.parentElement);
+                var y, I;
+                function t(F) {
+                  return F.parentElement.classList.value.split(" ").includes("el-dialog") ? F.parentElement : t(F.parentElement);
                 }
-                (U = (k = y(e.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : k.click) == null || U.call(k);
+                (I = (y = t(e.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : y.click) == null || I.call(y);
               }
             }, {
-              default: () => [Y("取消")]
-            }) : "", r(D, {
+              default: () => [G("取消")]
+            }) : "", l(U, {
               type: "primary",
-              onClick: A.submit
+              onClick: D.submit
             }, {
-              default: () => [Y("确定")]
+              default: () => [G("确定")]
             })]),
             label: () => ""
           })]
         });
       }
-      function I(e) {
-        var y, k, U, C, B, f, j, m, N, R, z, q, P;
-        switch (c[e.formItem.prop] = F(), e.type) {
+      function C(e) {
+        var t, y, I, F, N, R, z, L, P, j, W, q, H;
+        switch (h[e.formItem.prop] = Y(), e.type) {
           case "input":
-            return r(ne, t({
-              ref: c[e.formItem.prop],
+            return l(ye, c({
+              ref: h[e.formItem.prop],
               clearable: !0,
               maxlength: 30
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(y = e == null ? void 0 : e.control) == null ? void 0 : y.slots
+              ...(t = e == null ? void 0 : e.control) == null ? void 0 : t.slots
             });
           case "input-number":
-            return r(_e, t({
-              ref: c[e.formItem.prop],
+            return l(we, c({
+              ref: h[e.formItem.prop],
               min: 0,
               max: 100
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), null);
           case "select":
-            return r(ve, t({
-              ref: c[e.formItem.prop],
+            return l(_e, c({
+              ref: h[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
               default: () => {
-                var u, n;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (n = e == null ? void 0 : e.control) == null ? void 0 : n.option.map((d) => r(ye, t(d, {
+                var r, v;
+                return [((r = e == null ? void 0 : e.control) == null ? void 0 : r.option) instanceof Array ? (v = e == null ? void 0 : e.control) == null ? void 0 : v.option.map((d) => l(be, c(d, {
                   key: d.value
                 }), {
                   ...d == null ? void 0 : d.slots
@@ -283,34 +284,34 @@ const ze = /* @__PURE__ */ Z({
               }
             });
           case "tree-select":
-            return r(be, t({
-              ref: c[e.formItem.prop],
+            return l(se, c({
+              ref: h[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(k = e == null ? void 0 : e.control) == null ? void 0 : k.slots
+              ...(y = e == null ? void 0 : e.control) == null ? void 0 : y.slots
             });
           case "cascader":
-            return r(he, t({
-              ref: c[e.formItem.prop]
+            return l(ve, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(U = e == null ? void 0 : e.control) == null ? void 0 : U.slots
+              ...(I = e == null ? void 0 : e.control) == null ? void 0 : I.slots
             });
           case "radio":
-            return r(X, t({
-              ref: c[e.formItem.prop]
+            return l(m, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
               default: () => {
-                var u, n;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (n = e == null ? void 0 : e.control) == null ? void 0 : n.option.map((d) => r(se, t(d, {
+                var r, v;
+                return [((r = e == null ? void 0 : e.control) == null ? void 0 : r.option) instanceof Array ? (v = e == null ? void 0 : e.control) == null ? void 0 : v.option.map((d) => l(te, c(d, {
                   label: d.value,
                   key: d.label
                 }), {
@@ -320,15 +321,15 @@ const ze = /* @__PURE__ */ Z({
               }
             });
           case "radio-button":
-            return r(X, t({
-              ref: c[e.formItem.prop]
+            return l(m, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
               default: () => {
-                var u, n;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (n = e == null ? void 0 : e.control) == null ? void 0 : n.option.map((d) => r(te, t(d, {
+                var r, v;
+                return [((r = e == null ? void 0 : e.control) == null ? void 0 : r.option) instanceof Array ? (v = e == null ? void 0 : e.control) == null ? void 0 : v.option.map((d) => l(he, c(d, {
                   label: d.value,
                   key: d.label
                 }), {
@@ -338,15 +339,15 @@ const ze = /* @__PURE__ */ Z({
               }
             });
           case "checkbox":
-            return r(Q, t({
-              ref: c[e.formItem.prop]
+            return l(p, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
               default: () => {
-                var u, n;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (n = e == null ? void 0 : e.control) == null ? void 0 : n.option.map((d) => r(ce, t(d, {
+                var r, v;
+                return [((r = e == null ? void 0 : e.control) == null ? void 0 : r.option) instanceof Array ? (v = e == null ? void 0 : e.control) == null ? void 0 : v.option.map((d) => l(ce, c(d, {
                   label: d.value,
                   key: d.label
                 }), {
@@ -356,15 +357,15 @@ const ze = /* @__PURE__ */ Z({
               }
             });
           case "checkbox-button":
-            return r(Q, t({
-              ref: c[e.formItem.prop]
+            return l(p, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
               default: () => {
-                var u, n;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (n = e == null ? void 0 : e.control) == null ? void 0 : n.option.map((d) => r(de, t(d, {
+                var r, v;
+                return [((r = e == null ? void 0 : e.control) == null ? void 0 : r.option) instanceof Array ? (v = e == null ? void 0 : e.control) == null ? void 0 : v.option.map((d) => l(de, c(d, {
                   label: d.value,
                   key: d.label
                 }), {
@@ -375,138 +376,93 @@ const ze = /* @__PURE__ */ Z({
             });
           case "date-picker":
           case "date-time-picker":
-            const L = {
+            const J = {
               datetimerange: "YYYY-MM-DD hh:mm:ss",
               daterange: "YYYY-MM-DD",
               datetime: "YYYY-MM-DD hh:mm:ss",
               date: "YYYY-MM-DD"
-            }[((C = e == null ? void 0 : e.control) == null ? void 0 : C.type) || "date"];
-            return r(ue, t({
-              ref: c[e.formItem.prop],
+            }[((F = e == null ? void 0 : e.control) == null ? void 0 : F.type) || "date"];
+            return l(re, c({
+              ref: h[e.formItem.prop],
               clearable: !0,
-              format: L,
-              "value-format": L
+              format: J,
+              "value-format": J
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), {
-              ...(B = e == null ? void 0 : e.control) == null ? void 0 : B.slots
+              ...(N = e == null ? void 0 : e.control) == null ? void 0 : N.slots
             });
           case "time-picker":
-            return r(re, t({
-              ref: c[e.formItem.prop],
+            return l(ue, c({
+              ref: h[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), null);
           case "switch":
-            return r(le, t({
-              ref: c[e.formItem.prop]
+            return l(le, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
-              "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:modelValue": (r) => a.model[e.formItem.prop] = r
             }), null);
           case "upload":
-            return r(ae, t({
-              ref: c[e.formItem.prop]
+            return l(ae, c({
+              ref: h[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               "file-list": a.model[e.formItem.prop],
-              "onUpdate:file-list": (u) => a.model[e.formItem.prop] = u
+              "onUpdate:file-list": (r) => a.model[e.formItem.prop] = r
             }), {
-              default: () => a.disabled ? "" : r(D, {
+              default: () => a.disabled ? "" : l(U, {
                 type: "primary"
               }, {
-                default: () => [Y("上传文件")]
+                default: () => [G("上传文件")]
               }),
-              ...(f = e == null ? void 0 : e.control) == null ? void 0 : f.slots
+              ...(R = e == null ? void 0 : e.control) == null ? void 0 : R.slots
             });
           case "slot":
-            return (m = (j = e == null ? void 0 : e.control) == null ? void 0 : j.slots) != null && m.default && typeof ((R = (N = e == null ? void 0 : e.control) == null ? void 0 : N.slots) == null ? void 0 : R.default) == "function" ? r($, null, [(q = (z = e.control.slots).default) == null ? void 0 : q.call(z, {
+            return (L = (z = e == null ? void 0 : e.control) == null ? void 0 : z.slots) != null && L.default && typeof ((j = (P = e == null ? void 0 : e.control) == null ? void 0 : P.slots) == null ? void 0 : j.default) == "function" ? l(n, null, [(q = (W = e.control.slots).default) == null ? void 0 : q.call(W, {
               form: a.model,
               data: a.model[e.formItem.prop]
-            })]) : l[e.formItem.prop] ? (P = l[e.formItem.prop]) == null ? void 0 : P.call(l, {
+            })]) : u[e.formItem.prop] ? (H = u[e.formItem.prop]) == null ? void 0 : H.call(u, {
               form: a.model,
               data: a.model[e.formItem.prop]
             }) : a.model[e.formItem.prop];
         }
       }
-      function x() {
-        return r($, null, [r(D, {
+      function b() {
+        return l(n, null, [l(U, {
           type: "primary",
-          onClick: A.submit,
-          icon: Te
+          onClick: D.submit,
+          icon: Me
         }, {
-          default: () => [Y("搜索")]
-        }), r(D, {
-          onClick: A.reset,
-          icon: Fe
+          default: () => [G("搜索")]
+        }), l(U, {
+          onClick: D.reset,
+          icon: Ye
         }, {
-          default: () => [Y("重置")]
-        }), a.type === "search" && a.formOption.length > E - 1 ? r($, null, [r(D, {
+          default: () => [G("重置")]
+        }), a.type === "search" && a.formOption.length > k - 1 ? l(n, null, [l(U, {
           text: !0,
           type: "primary",
-          class: `expandBtn ${b.value ? "up" : "down"}`,
+          class: `expandBtn ${E.value ? "up" : "down"}`,
           onClick: () => {
-            V(!b.value);
+            x(!E.value);
           },
-          icon: Ve
+          icon: $e
         }, {
-          default: () => [b.value ? "收起" : "展开"]
+          default: () => [E.value ? "收起" : "展开"]
         })]) : ""]);
       }
-      return w();
+      return s();
     };
   }
-}), Be = (h, g, _, l) => {
-  if (!Array.isArray(h))
-    return [];
-  const v = [];
-  let a = [];
-  return l && (a = Object.keys(l)), h.forEach((s) => {
-    let c = {
-      label: typeof s == "string" ? s : s[g],
-      value: typeof s == "string" ? s : s[_]
-    };
-    l && a.forEach((b) => {
-      c[b] = s[b];
-    }), v.push(c);
-  }), v;
-}, fe = (h, g = []) => {
-  const _ = {
-    input: "输入",
-    "input-number": "输入",
-    select: "选择",
-    "tree-select": "选择",
-    cascader: "选择",
-    radio: "选择",
-    "radio-button": "选择",
-    checkbox: "选择",
-    "checkbox-button": "选择",
-    "date-picker": "选择",
-    "date-time-picker": "选择",
-    "time-picker": "选择",
-    switch: "选择",
-    upload: "上传",
-    slot: "完善"
-  };
-  return h.forEach((l) => {
-    var a, s, c;
-    const v = { required: !0, message: `请${_[l.type] ?? "完善"}${l.formItem.label ?? ""}`, trigger: "change" };
-    if (!g.includes(l.formItem.prop) && (((a = l.formItem) == null ? void 0 : a.rules) instanceof Object ? l.formItem.rules = [v, l.formItem.rules] : Array.isArray((s = l.formItem) == null ? void 0 : s.rules) ? l.formItem.rules.unshift(v) : l.formItem.rules = [v], ((c = l.formItem) == null ? void 0 : c.rules) instanceof Array))
-      for (let b = 0; b < l.formItem.rules.length; b++) {
-        let E = l.formItem.rules[b];
-        E.message || (E.message = "格式有误");
-      }
-  }), h;
-}, qe = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  getOption: Be,
-  setRequired: fe
-}, Symbol.toStringTag, { value: "Module" }));
+});
 export {
-  ze as FormGenerator,
+  Pe as FormGenerator,
   qe as GeneratorUtils,
-  Re as TableGenerator
+  Le as TableGenerator
 };
 //# sourceMappingURL=index.js.map
