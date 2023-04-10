@@ -1,6 +1,6 @@
 {
   "name": "element-plus-generator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "基于element-plus封装的表格、表单生成器",
   "type": "module",
   "main": "./dist/index.js",
