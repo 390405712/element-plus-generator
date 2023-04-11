@@ -1,13 +1,13 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import dts from 'vite-plugin-dts'
+// import dts from 'vite-plugin-dts'
 import VitePluginStyleInject from 'vite-plugin-style-inject';
 
 export default defineConfig({
   build: {
     lib: {
-      entry: ['./lib/index.ts','./lib/utils.ts'],
+      entry: ['./lib/index.ts'],
       name: 'element-plus-generator',
       formats: ['es'],
       // "commonjs" | "esm" | "module" | "systemjs"
@@ -24,5 +24,10 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vue(), vueJsx(), VitePluginStyleInject(), dts()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    VitePluginStyleInject(),
+    // dts()
+  ],
 });
