@@ -1,5 +1,4 @@
 import type { Ref } from 'vue'
-import type { InputInstance } from 'element-plus'
 import type { InputProps, InputAutoSize } from 'element-plus/lib/components/input/src/input'
 import type { InputNumberProps } from 'element-plus/lib/components/input-number/src/input-number'
 import { cascaderProps as CascaderProps } from 'element-plus/lib/components/cascader/src/cascader'
@@ -83,7 +82,7 @@ export type FormAttrs = {
   type?: 'search' | 'dialog'
   column?: number
   slot?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
-} & Partial<Omit<FormProps, 'model' | 'rules'>> & FormEvents & {
+} & CanWrite<Partial<Omit<FormProps, 'model' | 'rules'>>> & FormEvents & {
   onSubmit?: () => void
 }
 
@@ -98,7 +97,7 @@ type FormItem = {
   style?: string
   class?: string
   rules?: FormItemRule | FormItemRule[]
-} & Partial<Omit<FormItemProps, 'prop' | 'rules'>>
+} & CanWrite<Partial<Omit<FormItemProps, 'prop' | 'rules'>>>
 
 /**
  * @description: control类型
@@ -125,7 +124,7 @@ export type Input = {
   type: 'input'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<Omit<InputProps, 'autosize'>> & InputEvents & InputSlots & Partial<{
+  control?: Control & CanWrite<Partial<Omit<InputProps, 'autosize'>>> & InputEvents & InputSlots & Partial<{
     maxlength: string | number,
     minlength: string | number,
     autosize: InputAutoSize
@@ -142,7 +141,7 @@ export type InputNumber = {
   type: 'input-number'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<InputNumberProps> & InputNumberEvents
+  control?: Control & CanWrite<Partial<InputNumberProps>> & InputNumberEvents
 }
 
 export type TreeSelect = {
@@ -201,70 +200,70 @@ export type Radio = {
   type: 'radio'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<RadioGroupProps> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
 }
 
 export type RadioButton = {
   type: 'radio-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<RadioGroupProps> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
 }
 
 export type Cascader = {
   type: 'cascader'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<Omit<import("vue").ExtractPropTypes<typeof CascaderProps>, 'options'>> & { options?: Ref<CascaderOption[]> | CascaderOption[] } & Partial<CascaderEvents> & CascaderSlots
+  control?: Control & CanWrite<Partial<Omit<import("vue").ExtractPropTypes<typeof CascaderProps>, 'options'>>> & { options?: Ref<CascaderOption[]> | CascaderOption[] } & Partial<CascaderEvents> & CascaderSlots
 }
 
 export type Checkbox = {
   type: 'checkbox'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<CheckboxGroupProps> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
 }
 
 export type CheckboxButton = {
   type: 'checkbox-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<CheckboxGroupProps> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
 }
 
 export type DatePicker = {
   type: 'date-picker'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<DatePickerProps> & DatePickerEvents & DatePickerSlots
+  control?: Control & CanWrite<Partial<DatePickerProps>> & DatePickerEvents & DatePickerSlots
 }
 
 export type DateTimePicker = {
   type: 'date-time-picker'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<DatePickerProps> & DatePickerEvents & DatePickerSlots
+  control?: Control & CanWrite<Partial<DatePickerProps>> & DatePickerEvents & DatePickerSlots
 }
 
 export type TimePicker = {
   type: 'time-picker'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<TimePickerProps> & TimePickerEvents
+  control?: Control & CanWrite<Partial<TimePickerProps>> & TimePickerEvents
 }
 
 export type Switch = {
   type: 'switch'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<SwitchProps> & SwitchEvents
+  control?: Control & CanWrite<Partial<SwitchProps>> & SwitchEvents
 }
 
 export type Upload = {
   type: 'upload'
   show?: boolean
   formItem: FormItem
-  control?: Control & Partial<UploadProps> & UploadSlots
+  control?: Control & CanWrite<Partial<UploadProps>> & UploadSlots
 }
 
 export type Slot = {
@@ -312,7 +311,7 @@ export type TableAttrs = {
   data: Record<string, any>[]
   tableOption: TableOption[]
   loading?: boolean
-}
+} & Partial<TableProps>
 
 /**
  * @description: 表格生成配置
@@ -326,3 +325,7 @@ export type TableOption = {
   children?: TableOption[]
   formatter?: (scope: { $index: number, row: Record<string, any> }) => any
 } & Partial<Omit<import("vue").ExtractPropTypes<typeof _default>, 'type' | 'formatter'>>
+
+type CanWrite<T> = {
+	-readonly [K in keyof T]: T[K] extends Record<any, any> ? CanWrite<T[K]> : T[K]
+}
