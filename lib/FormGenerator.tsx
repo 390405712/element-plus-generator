@@ -98,7 +98,7 @@ export default defineComponent({
           case 'radio':
             return (
               <ElRadioGroup ref={$refs[formOption.formItem.prop]} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}>
-                {formOption?.control?.option instanceof Array ? formOption?.control?.option!.map((controlOptionItem) => (
+                {formOption?.control?.radioGroup instanceof Array ? formOption?.control?.radioGroup!.map((controlOptionItem) => (
                   <ElRadio {...controlOptionItem} label={controlOptionItem.value} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.label} >{controlOptionItem.label}</ElRadio>
                 )) : ''}
               </ElRadioGroup>
@@ -107,7 +107,7 @@ export default defineComponent({
           case 'radio-button':
             return (
               <ElRadioGroup ref={$refs[formOption.formItem.prop]} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}>
-                {formOption?.control?.option instanceof Array ? formOption?.control?.option!.map((controlOptionItem) => (
+                {formOption?.control?.radioGroup instanceof Array ? formOption?.control?.radioGroup!.map((controlOptionItem) => (
                   <ElRadioButton {...controlOptionItem} label={controlOptionItem.value} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.label} >{controlOptionItem.label}</ElRadioButton>
                 )) : ''}
               </ElRadioGroup>
@@ -116,7 +116,7 @@ export default defineComponent({
           case 'checkbox':
             return (
               <ElCheckboxGroup ref={$refs[formOption.formItem.prop]} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}>
-                {formOption?.control?.option instanceof Array ? formOption?.control?.option.map((controlOptionItem) => (
+                {formOption?.control?.checkboxGroup instanceof Array ? formOption?.control?.checkboxGroup.map((controlOptionItem) => (
                   <ElCheckbox  {...controlOptionItem} label={controlOptionItem.value} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.label} >{controlOptionItem.label}</ElCheckbox>
                 )) : ''}
               </ElCheckboxGroup>
@@ -125,7 +125,7 @@ export default defineComponent({
           case 'checkbox-button':
             return (
               <ElCheckboxGroup ref={$refs[formOption.formItem.prop]} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}>
-                {formOption?.control?.option instanceof Array ? formOption?.control?.option.map((controlOptionItem) => (
+                {formOption?.control?.checkboxGroup instanceof Array ? formOption?.control?.checkboxGroup.map((controlOptionItem) => (
                   <ElCheckboxButton  {...controlOptionItem} label={controlOptionItem.value} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.label} >{controlOptionItem.label}</ElCheckboxButton>
                 )) : ''}
               </ElCheckboxGroup>

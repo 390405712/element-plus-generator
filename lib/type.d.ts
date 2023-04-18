@@ -200,14 +200,14 @@ export type Radio = {
   type: 'radio'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<RadioGroupProps>> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
 }
 
 export type RadioButton = {
   type: 'radio-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<RadioGroupProps>> & { option: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
 }
 
 export type Cascader = {
@@ -221,14 +221,14 @@ export type Checkbox = {
   type: 'checkbox'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
 }
 
 export type CheckboxButton = {
   type: 'checkbox-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { option: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
 }
 
 export type DatePicker = {
