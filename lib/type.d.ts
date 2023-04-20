@@ -1,4 +1,4 @@
-import type { Ref } from 'vue'
+import type { Ref, Component } from 'vue'
 import type { InputProps, InputAutoSize } from 'element-plus/lib/components/input/src/input'
 import type { InputNumberProps } from 'element-plus/lib/components/input-number/src/input-number'
 import { cascaderProps as CascaderProps } from 'element-plus/lib/components/cascader/src/cascader'
@@ -327,5 +327,30 @@ export type TableOption = {
 } & Partial<Omit<import("vue").ExtractPropTypes<typeof _default>, 'type' | 'formatter'>>
 
 type CanWrite<T> = {
-	-readonly [K in keyof T]: T[K] extends Record<any, any> ? CanWrite<T[K]> : T[K]
+  -readonly [K in keyof T]: T[K] extends Record<any, any> ? CanWrite<T[K]> : T[K]
+}
+
+export type StepsOption = {
+  key: string
+  title?: string
+  description?: string
+  icon?: Component | string
+  status?: '' | 'wait' | 'process' | 'finish' | 'error' | 'success'
+  slots?: {
+    icon?: ((...args: any[]) => JSX.Element | string | void) | string
+    title?: ((...args: any[]) => JSX.Element | string | void) | string
+    description?: ((...args: any[]) => JSX.Element | string | void) | string
+  }
+}
+
+export type StepsAttrs = {
+  space?: number | string
+  direction?: 'vertical' | 'horizontal'
+  processStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
+  finishStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
+  alignCenter?: boolean
+  simple?: boolean
+  stepsOption: StepsOption[]
+  onPrev: (activeIndex: number, next: (activeIndex: number) => void) => void
+  onNext: (activeIndex: number, next: (activeIndex: number) => void) => void
 }

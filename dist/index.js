@@ -1,76 +1,76 @@
-(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as Z, ref as D, watch as W, nextTick as H, createVNode as r, Fragment as $, mergeProps as t, openBlock as p, createElementBlock as S, createElementVNode as T, createTextVNode as U, isVNode as o } from "vue";
-import { ElLoading as i, ElTable as K, ElTableColumn as Y, ElEmpty as O, ElForm as ee, ElFormItem as J, ElButton as C, ElUpload as ae, ElSwitch as le, ElTimePicker as re, ElDatePicker as ue, ElCheckboxGroup as Q, ElCheckboxButton as de, ElCheckbox as ce, ElRadioGroup as X, ElRadioButton as te, ElRadio as se, ElCascader as he, ElTreeSelect as be, ElSelect as ve, ElOption as ye, ElInputNumber as _e, ElInput as we } from "element-plus";
-const Re = /* @__PURE__ */ Z({
+(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}.StepsGenerator{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-start;gap:10px}.StepsGenerator .btn-group{width:100%;display:flex;justify-content:center;gap:10px}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as F, ref as S, watch as H, nextTick as K, createVNode as r, Fragment as V, mergeProps as s, openBlock as U, createElementBlock as Y, createElementVNode as m, createTextVNode as G, isVNode as o } from "vue";
+import { ElLoading as i, ElTable as J, ElTableColumn as D, ElEmpty as O, ElForm as ee, ElFormItem as Q, ElButton as f, ElUpload as ae, ElSwitch as le, ElTimePicker as re, ElDatePicker as ue, ElCheckboxGroup as X, ElCheckboxButton as de, ElCheckbox as ce, ElRadioGroup as Z, ElRadioButton as te, ElRadio as se, ElCascader as ne, ElTreeSelect as he, ElSelect as ve, ElOption as be, ElInputNumber as ye, ElInput as ge, ElSteps as _e, ElStep as we } from "element-plus";
+const qe = /* @__PURE__ */ F({
   name: "TableGenerator",
-  setup(h, {
-    expose: n,
-    attrs: _,
+  setup(n, {
+    expose: x,
+    attrs: b,
     slots: l,
-    emit: v
+    emit: y
   }) {
-    const a = D(), s = _;
-    let c, b = (/* @__PURE__ */ new Date()).getTime(), x = D(!1), G = D(0);
-    return W(() => s.loading, (V) => {
-      V ? H(() => {
-        c = i.service({
-          target: `.el-table-${b}`
+    const a = S(), d = b;
+    let t, h = (/* @__PURE__ */ new Date()).getTime(), v = S(!1), k = S(0);
+    return H(() => d.loading, (g) => {
+      g ? K(() => {
+        t = i.service({
+          target: `.el-table-${h}`
         });
-      }) : c == null || c.close();
+      }) : t == null || t.close();
     }, {
       immediate: !0
-    }), W(() => s.data, (V) => {
-      if (!(l != null && l.operation) || V.length === 0)
-        return x.value = !0;
-      x.value = !1, H(() => {
-        let g = 0;
+    }), H(() => d.data, (g) => {
+      if (!(l != null && l.operation) || g.length === 0)
+        return v.value = !0;
+      v.value = !1, K(() => {
+        let _ = 0;
         document.querySelectorAll(".content-wrapper-width").forEach((I) => {
-          I.offsetWidth > g && (g = I.offsetWidth);
-        }), G.value = g > 0 ? g + 32 : "auto", x.value = !0;
+          I.offsetWidth > _ && (_ = I.offsetWidth);
+        }), k.value = _ > 0 ? _ + 32 : "auto", v.value = !0;
       });
     }, {
       immediate: !0
-    }), n(() => a.value), () => {
-      function V(E) {
-        return E.map((e) => ["selection", "index", "expand"].includes(e.type) ? r(Y, t({
+    }), x(() => a.value), () => {
+      function g(p) {
+        return p.map((e) => ["selection", "index", "expand"].includes(e.type) ? r(D, s({
           type: e.type
         }, e), {
           ...e == null ? void 0 : e.slots
-        }) : r(Y, t({
+        }) : r(D, s({
           "show-overflow-tooltip": !0,
           align: "left"
         }, e), {
-          default: (y) => {
-            var k;
-            return e.children && Array.isArray(e.children) && e.children.length > 0 ? V(e.children) : l[e.prop] ? r($, null, [(k = l[e.prop]) == null ? void 0 : k.call(l, {
-              $index: y.$index,
-              row: y.row
-            })]) : e.formatter ? r($, null, [e.formatter({
-              $index: y.$index,
-              row: y.row
-            }) ?? "-"]) : r($, null, [y.row[e.prop] ?? "-"]);
+          default: (w) => {
+            var $;
+            return e.children && Array.isArray(e.children) && e.children.length > 0 ? g(e.children) : l[e.prop] ? r(V, null, [($ = l[e.prop]) == null ? void 0 : $.call(l, {
+              $index: w.$index,
+              row: w.row
+            })]) : e.formatter ? r(V, null, [e.formatter({
+              $index: w.$index,
+              row: w.row
+            }) ?? "-"]) : r(V, null, [w.row[e.prop] ?? "-"]);
           },
           ...e == null ? void 0 : e.slots
         }));
       }
-      function g() {
-        return r(K, t({
+      function _() {
+        return r(J, s({
           ref: a,
           stripe: !0
-        }, s, {
-          class: `TableGenerator el-table-${b}`
+        }, d, {
+          class: `TableGenerator el-table-${h}`
         }), {
-          default: () => [V(s.tableOption), l != null && l.operation ? r(Y, {
+          default: () => [g(d.tableOption), l != null && l.operation ? r(D, {
             fixed: "right",
             label: "操作",
-            width: G.value
+            width: k.value
           }, {
-            default: (E) => {
+            default: (p) => {
               var e;
               return r("div", {
                 class: "content-wrapper"
               }, [(e = l.operation) == null ? void 0 : e.call(l, {
-                $index: E.$index,
-                row: E.row
+                $index: p.$index,
+                row: p.row
               })]);
             }
           }) : ""],
@@ -81,41 +81,41 @@ const Re = /* @__PURE__ */ Z({
         });
       }
       function I() {
-        return r(K, t(_, {
-          class: `TableGenerator el-table-${b}`
+        return r(J, s(b, {
+          class: `TableGenerator el-table-${h}`
         }), {
-          default: () => [r(Y, {
+          default: () => [r(D, {
             fixed: "right"
           }, {
-            default: (E) => {
+            default: (p) => {
               var e;
               return r("div", {
                 style: "display:inline-block;opacity:0",
                 class: "content-wrapper content-wrapper-width"
               }, [(e = l.operation) == null ? void 0 : e.call(l, {
-                $index: E.$index,
-                row: E.row
+                $index: p.$index,
+                row: p.row
               })]);
             }
           })]
         });
       }
-      return r($, null, [x.value ? g() : I()]);
+      return r(V, null, [v.value ? _() : I()]);
     };
   }
 });
 /*! Element Plus Icons Vue v2.1.0 */
-var M = (h, n) => {
-  let _ = h.__vccOpts || h;
-  for (let [l, v] of n)
-    _[l] = v;
-  return _;
-}, ge = {
+var T = (n, x) => {
+  let b = n.__vccOpts || n;
+  for (let [l, y] of x)
+    b[l] = y;
+  return b;
+}, xe = {
   name: "ArrowUp"
-}, ne = {
+}, Ee = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, xe = /* @__PURE__ */ T(
+}, ke = /* @__PURE__ */ m(
   "path",
   {
     fill: "currentColor",
@@ -124,18 +124,18 @@ var M = (h, n) => {
   null,
   -1
   /* HOISTED */
-), Ee = [
-  xe
+), pe = [
+  ke
 ];
-function ke(h, n, _, l, v, a) {
-  return p(), S("svg", ne, Ee);
+function $e(n, x, b, l, y, a) {
+  return U(), Y("svg", Ee, pe);
 }
-var Ve = /* @__PURE__ */ M(ge, [["render", ke], ["__file", "arrow-up.vue"]]), $e = {
+var Ve = /* @__PURE__ */ T(xe, [["render", $e], ["__file", "arrow-up.vue"]]), Ie = {
   name: "Refresh"
-}, Ie = {
+}, fe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ge = /* @__PURE__ */ T(
+}, Ge = /* @__PURE__ */ m(
   "path",
   {
     fill: "currentColor",
@@ -144,18 +144,18 @@ var Ve = /* @__PURE__ */ M(ge, [["render", ke], ["__file", "arrow-up.vue"]]), $e
   null,
   -1
   /* HOISTED */
-), Ae = [
+), Se = [
   Ge
 ];
-function Ce(h, n, _, l, v, a) {
-  return p(), S("svg", Ie, Ae);
+function Ce(n, x, b, l, y, a) {
+  return U(), Y("svg", fe, Se);
 }
-var De = /* @__PURE__ */ M($e, [["render", Ce], ["__file", "refresh.vue"]]), Fe = {
+var Ae = /* @__PURE__ */ T(Ie, [["render", Ce], ["__file", "refresh.vue"]]), De = {
   name: "Search"
-}, Ue = {
+}, Fe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ye = /* @__PURE__ */ T(
+}, Ue = /* @__PURE__ */ m(
   "path",
   {
     fill: "currentColor",
@@ -164,101 +164,101 @@ var De = /* @__PURE__ */ M($e, [["render", Ce], ["__file", "refresh.vue"]]), Fe 
   null,
   -1
   /* HOISTED */
-), pe = [
-  Ye
+), Ye = [
+  Ue
 ];
-function Se(h, n, _, l, v, a) {
-  return p(), S("svg", Ue, pe);
+function me(n, x, b, l, y, a) {
+  return U(), Y("svg", Fe, Ye);
 }
-var Te = /* @__PURE__ */ M(Fe, [["render", Se], ["__file", "search.vue"]]);
-function Me(h) {
-  return typeof h == "function" || Object.prototype.toString.call(h) === "[object Object]" && !o(h);
+var Te = /* @__PURE__ */ T(De, [["render", me], ["__file", "search.vue"]]);
+function je(n) {
+  return typeof n == "function" || Object.prototype.toString.call(n) === "[object Object]" && !o(n);
 }
-const ze = /* @__PURE__ */ Z({
+const Le = /* @__PURE__ */ F({
   name: "FormGenerator",
-  setup(h, {
-    expose: n,
-    attrs: _,
+  setup(n, {
+    expose: x,
+    attrs: b,
     slots: l,
-    emit: v
+    emit: y
   }) {
-    const a = _, s = D(), c = {}, b = D(!1), x = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, G = {
+    const a = b, d = S(), t = {}, h = S(!1), v = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, k = {
       submit: () => {
-        s.value.validate((g) => {
-          g && v("submit");
+        d.value.validate((_) => {
+          _ && y("submit");
         });
       },
       reset: () => {
-        s.value.resetFields(), v("submit", "init");
+        d.value.resetFields(), y("submit", "init");
       }
     };
-    function V(g) {
-      b.value = g, a.formOption.forEach((I, E) => {
-        E > x - 2 && (I.show = g);
+    function g(_) {
+      h.value = _, a.formOption.forEach((I, p) => {
+        p > v - 2 && (I.show = _);
       });
     }
-    return a.formOption.length >= x - 2 && (a == null ? void 0 : a.type) === "search" && V(!1), n(() => ({
-      ...s.value,
-      ...G,
-      $refs: c
+    return a.formOption.length >= v - 2 && (a == null ? void 0 : a.type) === "search" && g(!1), x(() => ({
+      ...d.value,
+      ...k,
+      $refs: t
     })), () => {
-      function g() {
-        return r(ee, t({
+      function _() {
+        return r(ee, s({
           class: `FormGenerator ${(a == null ? void 0 : a.type) === "search" ? "FormGeneratorSearch" : ""} ${(a == null ? void 0 : a.type) === "dialog" ? "FormGeneratorDialog" : ""}`,
           inline: (a == null ? void 0 : a.type) === "search",
           "validate-on-rule-change": !1,
           "label-width": a.labelWidth || "auto"
         }, a, {
-          ref: s
+          ref: d
         }), {
           default: () => [a.formOption.map((e) => {
-            let y;
+            let w;
             if (!(e.hasOwnProperty("show") && e.show === !1))
-              return r(J, t(e.formItem, {
+              return r(Q, s(e.formItem, {
                 key: e.formItem.prop
-              }), Me(y = I(e)) ? y : {
-                default: () => [y]
+              }), je(w = I(e)) ? w : {
+                default: () => [w]
               });
-          }), a.disabled === !0 || a.noFooter || !a.onSubmit ? "" : r(J, {
-            class: `btnItem ${b.value ? "searchItem" : ""}`
+          }), a.disabled === !0 || a.noFooter || !a.onSubmit ? "" : r(Q, {
+            class: `btnItem ${h.value ? "searchItem" : ""}`
           }, {
-            default: () => l != null && l.default ? r($, null, [l.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? E() : r($, null, [(a == null ? void 0 : a.type) === "dialog" ? r(C, {
+            default: () => l != null && l.default ? r(V, null, [l.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? p() : r(V, null, [(a == null ? void 0 : a.type) === "dialog" ? r(f, {
               onClick: (e) => {
-                var k, F;
-                function y(A) {
-                  return A.parentElement.classList.value.split(" ").includes("el-dialog") ? A.parentElement : y(A.parentElement);
+                var $, A;
+                function w(C) {
+                  return C.parentElement.classList.value.split(" ").includes("el-dialog") ? C.parentElement : w(C.parentElement);
                 }
-                (F = (k = y(e.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : k.click) == null || F.call(k);
+                (A = ($ = w(e.target).querySelector(".el-dialog__headerbtn")) == null ? void 0 : $.click) == null || A.call($);
               }
             }, {
-              default: () => [U("取消")]
-            }) : "", r(C, {
+              default: () => [G("取消")]
+            }) : "", r(f, {
               type: "primary",
-              onClick: G.submit
+              onClick: k.submit
             }, {
-              default: () => [U("确定")]
+              default: () => [G("确定")]
             })]),
             label: () => ""
           })]
         });
       }
       function I(e) {
-        var y, k, F, A, B, f, j, m, N, R, z, q, P;
-        switch (c[e.formItem.prop] = D(), e.type) {
+        var w, $, A, C, j, M, B, N, P, R, z, q, L;
+        switch (t[e.formItem.prop] = S(), e.type) {
           case "input":
-            return r(we, t({
-              ref: c[e.formItem.prop],
+            return r(ge, s({
+              ref: t[e.formItem.prop],
               clearable: !0,
               maxlength: 30
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
-              ...(y = e == null ? void 0 : e.control) == null ? void 0 : y.slots
+              ...(w = e == null ? void 0 : e.control) == null ? void 0 : w.slots
             });
           case "input-number":
-            return r(_e, t({
-              ref: c[e.formItem.prop],
+            return r(ye, s({
+              ref: t[e.formItem.prop],
               min: 0,
               max: 100
             }, e == null ? void 0 : e.control, {
@@ -266,214 +266,278 @@ const ze = /* @__PURE__ */ Z({
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), null);
           case "select":
-            return r(ve, t({
-              ref: c[e.formItem.prop],
+            return r(ve, s({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
               default: () => {
-                var u, w;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (w = e == null ? void 0 : e.control) == null ? void 0 : w.option.map((d) => r(ye, t(d, {
-                  key: d.value
+                var u, E;
+                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.option) instanceof Array ? (E = e == null ? void 0 : e.control) == null ? void 0 : E.option.map((c) => r(be, s(c, {
+                  key: c.value
                 }), {
-                  ...d == null ? void 0 : d.slots
+                  ...c == null ? void 0 : c.slots
                 })) : ""];
               }
             });
           case "tree-select":
-            return r(be, t({
-              ref: c[e.formItem.prop],
+            return r(he, s({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
-              ...(k = e == null ? void 0 : e.control) == null ? void 0 : k.slots
+              ...($ = e == null ? void 0 : e.control) == null ? void 0 : $.slots
             });
           case "cascader":
-            return r(he, t({
-              ref: c[e.formItem.prop]
+            return r(ne, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
-              ...(F = e == null ? void 0 : e.control) == null ? void 0 : F.slots
+              ...(A = e == null ? void 0 : e.control) == null ? void 0 : A.slots
             });
           case "radio":
-            return r(X, t({
-              ref: c[e.formItem.prop]
+            return r(Z, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
               default: () => {
-                var u, w;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.radioGroup) instanceof Array ? (w = e == null ? void 0 : e.control) == null ? void 0 : w.radioGroup.map((d) => r(se, t(d, {
-                  label: d.value,
-                  key: d.label
+                var u, E;
+                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.radioGroup) instanceof Array ? (E = e == null ? void 0 : e.control) == null ? void 0 : E.radioGroup.map((c) => r(se, s(c, {
+                  label: c.value,
+                  key: c.label
                 }), {
-                  default: () => [d.label],
-                  ...d == null ? void 0 : d.slots
+                  default: () => [c.label],
+                  ...c == null ? void 0 : c.slots
                 })) : ""];
               }
             });
           case "radio-button":
-            return r(X, t({
-              ref: c[e.formItem.prop]
+            return r(Z, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
               default: () => {
-                var u, w;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.radioGroup) instanceof Array ? (w = e == null ? void 0 : e.control) == null ? void 0 : w.radioGroup.map((d) => r(te, t(d, {
-                  label: d.value,
-                  key: d.label
+                var u, E;
+                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.radioGroup) instanceof Array ? (E = e == null ? void 0 : e.control) == null ? void 0 : E.radioGroup.map((c) => r(te, s(c, {
+                  label: c.value,
+                  key: c.label
                 }), {
-                  default: () => [d.label],
-                  ...d == null ? void 0 : d.slots
+                  default: () => [c.label],
+                  ...c == null ? void 0 : c.slots
                 })) : ""];
               }
             });
           case "checkbox":
-            return r(Q, t({
-              ref: c[e.formItem.prop]
+            return r(X, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
               default: () => {
-                var u, w;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.checkboxGroup) instanceof Array ? (w = e == null ? void 0 : e.control) == null ? void 0 : w.checkboxGroup.map((d) => r(ce, t(d, {
-                  label: d.value,
-                  key: d.label
+                var u, E;
+                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.checkboxGroup) instanceof Array ? (E = e == null ? void 0 : e.control) == null ? void 0 : E.checkboxGroup.map((c) => r(ce, s(c, {
+                  label: c.value,
+                  key: c.label
                 }), {
-                  default: () => [d.label],
-                  ...d == null ? void 0 : d.slots
+                  default: () => [c.label],
+                  ...c == null ? void 0 : c.slots
                 })) : ""];
               }
             });
           case "checkbox-button":
-            return r(Q, t({
-              ref: c[e.formItem.prop]
+            return r(X, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
               default: () => {
-                var u, w;
-                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.checkboxGroup) instanceof Array ? (w = e == null ? void 0 : e.control) == null ? void 0 : w.checkboxGroup.map((d) => r(de, t(d, {
-                  label: d.value,
-                  key: d.label
+                var u, E;
+                return [((u = e == null ? void 0 : e.control) == null ? void 0 : u.checkboxGroup) instanceof Array ? (E = e == null ? void 0 : e.control) == null ? void 0 : E.checkboxGroup.map((c) => r(de, s(c, {
+                  label: c.value,
+                  key: c.label
                 }), {
-                  default: () => [d.label],
-                  ...d == null ? void 0 : d.slots
+                  default: () => [c.label],
+                  ...c == null ? void 0 : c.slots
                 })) : ""];
               }
             });
           case "date-picker":
           case "date-time-picker":
-            const L = {
+            const W = {
               datetimerange: "YYYY-MM-DD hh:mm:ss",
               daterange: "YYYY-MM-DD",
               datetime: "YYYY-MM-DD hh:mm:ss",
               date: "YYYY-MM-DD"
-            }[((A = e == null ? void 0 : e.control) == null ? void 0 : A.type) || "date"];
-            return r(ue, t({
-              ref: c[e.formItem.prop],
+            }[((C = e == null ? void 0 : e.control) == null ? void 0 : C.type) || "date"];
+            return r(ue, s({
+              ref: t[e.formItem.prop],
               clearable: !0,
-              format: L,
-              "value-format": L
+              format: W,
+              "value-format": W
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), {
-              ...(B = e == null ? void 0 : e.control) == null ? void 0 : B.slots
+              ...(j = e == null ? void 0 : e.control) == null ? void 0 : j.slots
             });
           case "time-picker":
-            return r(re, t({
-              ref: c[e.formItem.prop],
+            return r(re, s({
+              ref: t[e.formItem.prop],
               clearable: !0
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), null);
           case "switch":
-            return r(le, t({
-              ref: c[e.formItem.prop]
+            return r(le, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (u) => a.model[e.formItem.prop] = u
             }), null);
           case "upload":
-            return r(ae, t({
-              ref: c[e.formItem.prop]
+            return r(ae, s({
+              ref: t[e.formItem.prop]
             }, e == null ? void 0 : e.control, {
               "file-list": a.model[e.formItem.prop],
               "onUpdate:file-list": (u) => a.model[e.formItem.prop] = u
             }), {
-              default: () => a.disabled ? "" : r(C, {
+              default: () => a.disabled ? "" : r(f, {
                 type: "primary"
               }, {
-                default: () => [U("上传文件")]
+                default: () => [G("上传文件")]
               }),
-              ...(f = e == null ? void 0 : e.control) == null ? void 0 : f.slots
+              ...(M = e == null ? void 0 : e.control) == null ? void 0 : M.slots
             });
           case "slot":
-            return (m = (j = e == null ? void 0 : e.control) == null ? void 0 : j.slots) != null && m.default && typeof ((R = (N = e == null ? void 0 : e.control) == null ? void 0 : N.slots) == null ? void 0 : R.default) == "function" ? r($, null, [(q = (z = e.control.slots).default) == null ? void 0 : q.call(z, {
+            return (N = (B = e == null ? void 0 : e.control) == null ? void 0 : B.slots) != null && N.default && typeof ((R = (P = e == null ? void 0 : e.control) == null ? void 0 : P.slots) == null ? void 0 : R.default) == "function" ? r(V, null, [(q = (z = e.control.slots).default) == null ? void 0 : q.call(z, {
               form: a.model,
               data: a.model[e.formItem.prop]
-            })]) : l[e.formItem.prop] ? (P = l[e.formItem.prop]) == null ? void 0 : P.call(l, {
+            })]) : l[e.formItem.prop] ? (L = l[e.formItem.prop]) == null ? void 0 : L.call(l, {
               form: a.model,
               data: a.model[e.formItem.prop]
             }) : a.model[e.formItem.prop];
         }
       }
-      function E() {
-        return r($, null, [r(C, {
+      function p() {
+        return r(V, null, [r(f, {
           type: "primary",
-          onClick: G.submit,
+          onClick: k.submit,
           icon: Te
         }, {
-          default: () => [U("搜索")]
-        }), r(C, {
-          onClick: G.reset,
-          icon: De
+          default: () => [G("搜索")]
+        }), r(f, {
+          onClick: k.reset,
+          icon: Ae
         }, {
-          default: () => [U("重置")]
-        }), a.type === "search" && a.formOption.length > x - 1 ? r($, null, [r(C, {
+          default: () => [G("重置")]
+        }), a.type === "search" && a.formOption.length > v - 1 ? r(V, null, [r(f, {
           text: !0,
           type: "primary",
-          class: `expandBtn ${b.value ? "up" : "down"}`,
+          class: `expandBtn ${h.value ? "up" : "down"}`,
           onClick: () => {
-            V(!b.value);
+            g(!h.value);
           },
           icon: Ve
         }, {
-          default: () => [b.value ? "收起" : "展开"]
+          default: () => [h.value ? "收起" : "展开"]
         })]) : ""]);
       }
-      return g();
+      return _();
     };
   }
-}), Be = (h, n, _, l) => {
-  if (!Array.isArray(h))
-    return [];
-  const v = [];
-  let a = [];
-  return l && (a = Object.keys(l)), h.forEach((s) => {
-    let c = {
-      label: typeof s == "string" ? s : s[n],
-      value: typeof s == "string" ? s : s[_]
+});
+function Me(n) {
+  return typeof n == "function" || Object.prototype.toString.call(n) === "[object Object]" && !o(n);
+}
+const We = /* @__PURE__ */ F({
+  name: "StepsGenerator",
+  setup(n, {
+    expose: x,
+    attrs: b,
+    slots: l,
+    emit: y
+  }) {
+    const a = b, d = S(0);
+    function t() {
+      a != null && a.onPrev && typeof (a == null ? void 0 : a.onPrev) == "function" ? a.onPrev(d.value, (v) => {
+        v ? d.value = v : d.value === 0 || d.value--;
+      }) : d.value === 0 || d.value--;
+    }
+    function h() {
+      a != null && a.onNext && typeof (a == null ? void 0 : a.onNext) == "function" ? a.onNext(d.value, (v) => {
+        v ? d.value = v : d.value === a.stepsOption.length - 1 || d.value++;
+      }) : d.value === a.stepsOption.length - 1 || d.value++;
+    }
+    return x({
+      prev: t,
+      next: h
+    }), () => {
+      function v() {
+        let k;
+        return r("div", {
+          class: "StepsGenerator"
+        }, [r(_e, s({
+          "align-center": !0
+        }, a, {
+          active: d.value
+        }), Me(k = a.stepsOption.map((g) => r(we, g, {
+          ...g == null ? void 0 : g.slots
+        }))) ? k : {
+          default: () => [k]
+        }), r("div", {
+          class: "container"
+        }, [Object.keys(l).map((g, _) => r("div", {
+          style: {
+            display: d.value === _ ? "block" : "none"
+          }
+        }, [l[g]()]))]), r("div", {
+          class: "btn-group"
+        }, [l.default ? l.default()[0].children : r(V, null, [d.value > 0 ? r(f, {
+          type: "primary",
+          plain: !0,
+          onClick: t
+        }, {
+          default: () => [G("上一步")]
+        }) : "", r(f, {
+          type: "primary",
+          plain: !0,
+          onClick: h
+        }, {
+          default: () => [G(" "), d.value === a.stepsOption.length - 1 ? "提交" : "下一步"]
+        })])])]);
+      }
+      return v();
     };
-    l && a.forEach((b) => {
-      c[b] = s[b];
-    }), v.push(c);
-  }), v;
-}, fe = (h, n = []) => {
-  const _ = {
+  }
+}), Be = (n, x, b, l) => {
+  if (!Array.isArray(n))
+    return [];
+  const y = [];
+  let a = [];
+  return l && (a = Object.keys(l)), n.forEach((d) => {
+    let t = {
+      label: typeof d == "string" ? d : d[x],
+      value: typeof d == "string" ? d : d[b]
+    };
+    l && a.forEach((h) => {
+      t[h] = d[h];
+    }), y.push(t);
+  }), y;
+}, Ne = (n, x = []) => {
+  const b = {
     input: "输入",
     "input-number": "输入",
     select: "选择",
@@ -490,23 +554,24 @@ const ze = /* @__PURE__ */ Z({
     upload: "上传",
     slot: "完善"
   };
-  return h.forEach((l) => {
-    var a, s, c;
-    const v = { required: !0, message: `请${_[l.type] ?? "完善"}${l.formItem.label ?? ""}`, trigger: "change" };
-    if (!n.includes(l.formItem.prop) && (((a = l.formItem) == null ? void 0 : a.rules) instanceof Object ? l.formItem.rules = [v, l.formItem.rules] : Array.isArray((s = l.formItem) == null ? void 0 : s.rules) ? l.formItem.rules.unshift(v) : l.formItem.rules = [v], ((c = l.formItem) == null ? void 0 : c.rules) instanceof Array))
-      for (let b = 0; b < l.formItem.rules.length; b++) {
-        let x = l.formItem.rules[b];
-        x.message || (x.message = "格式有误");
+  return n.forEach((l) => {
+    var a, d, t;
+    const y = { required: !0, message: `请${b[l.type] ?? "完善"}${l.formItem.label ?? ""}`, trigger: "change" };
+    if (!x.includes(l.formItem.prop) && (((a = l.formItem) == null ? void 0 : a.rules) instanceof Object ? l.formItem.rules = [y, l.formItem.rules] : Array.isArray((d = l.formItem) == null ? void 0 : d.rules) ? l.formItem.rules.unshift(y) : l.formItem.rules = [y], ((t = l.formItem) == null ? void 0 : t.rules) instanceof Array))
+      for (let h = 0; h < l.formItem.rules.length; h++) {
+        let v = l.formItem.rules[h];
+        v.message || (v.message = "格式有误");
       }
-  }), h;
-}, qe = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  }), n;
+}, He = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   getOption: Be,
-  setRequired: fe
+  setRequired: Ne
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  ze as FormGenerator,
-  qe as GeneratorUtils,
-  Re as TableGenerator
+  Le as FormGenerator,
+  He as GeneratorUtils,
+  We as StepsGenerator,
+  qe as TableGenerator
 };
 //# sourceMappingURL=index.js.map
