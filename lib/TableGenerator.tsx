@@ -5,7 +5,7 @@ import type { TableAttrs, TableOption, RefTableGeneratorObj } from './type.d'
 export default defineComponent({
   name: 'TableGenerator',
   setup(props, { expose, attrs, slots, emit }) {
-    const RefFormGenerator = ref<RefTableGeneratorObj>()
+    const RefTableGenerator = ref<RefTableGeneratorObj>()
     const _attrs = attrs as TableAttrs
     let loading: any
     let el = new Date().getTime()
@@ -40,7 +40,7 @@ export default defineComponent({
       immediate: true,
     })
 
-    expose(() => (RefFormGenerator.value))
+    expose(() => (RefTableGenerator.value))
 
     return () => {
       // function renderIndexColumn() {
@@ -81,7 +81,7 @@ export default defineComponent({
       function renderTable() {
         return (
           <ElTable
-            ref={RefFormGenerator}
+            ref={RefTableGenerator}
             stripe={true}
             {..._attrs}
             class={`TableGenerator el-table-${el}`}

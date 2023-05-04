@@ -351,6 +351,6 @@ export type StepsAttrs = {
   alignCenter?: boolean
   simple?: boolean
   stepsOption: StepsOption[]
-  onPrev: (activeIndex: number, next: (activeIndex: number) => void) => void
-  onNext: (activeIndex: number, next: (activeIndex: number) => void) => void
+  onPrev?: (activeIndex: number, next: (activeIndex?: number) => void) => void
+  onNext?: (activeIndex: number, next: (activeIndex?: number) => void) => void
 }
