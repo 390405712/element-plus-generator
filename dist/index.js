@@ -505,7 +505,7 @@ const We = /* @__PURE__ */ U({
           }
         }, [l[g]()]))]), r("div", {
           class: "btn-group"
-        }, [l.default ? l.default()[0].children : r(V, null, [d.value > 0 ? r(f, {
+        }, [l.default ? l.default(d.value) : r(V, null, [d.value > 0 ? r(f, {
           type: "primary",
           plain: !0,
           onClick: t

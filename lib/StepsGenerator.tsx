@@ -55,7 +55,7 @@ export default defineComponent({
           </div>
           <div class='btn-group'>
             {slots.default
-              ? slots.default()[0].children
+              ? slots.default(activeIndex.value)
               : <>
                 {activeIndex.value > 0 ? <ElButton type="primary" plain onClick={prev}>上一步</ElButton> : ''}
                 <ElButton type="primary" plain onClick={next}> {activeIndex.value === _attrs.stepsOption.length - 1 ? '提交' : '下一步'}</ElButton>

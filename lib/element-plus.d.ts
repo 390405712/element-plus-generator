@@ -1,165 +1,175 @@
 import type { TreeNodeData, TreeKey, TreeData } from 'element-plus/lib/components/tree/src/tree.type'
-import type { CascaderNode, CascaderValue, CascaderNodeValue, CascaderNodePathValue } from 'element-plus/lib/components/cascader-panel';
+import type { CascaderNode, CascaderValue, CascaderNodeValue, CascaderNodePathValue } from 'element-plus/lib/components/cascader-panel'
+import type { EpPropFinalized, EpPropMergeType } from 'element-plus/lib/utils/vue/props/types.d.ts'
+import type { IDatePickerType } from 'element-plus/lib/components/date-picker/src/date-picker.type'
+import type { GetDisabledHours, GetDisabledMinutes, GetDisabledSeconds } from 'element-plus/lib/components/time-picker/src/props/shared'
+import type { SingleOrRange, ModelValueType } from 'element-plus/lib/components/time-picker'
+import type { CheckboxValueType } from 'element-plus/lib/components/checkbox/src/checkbox'
+import type { CheckboxGroupValueType } from 'element-plus/es/components/checkbox/src/checkbox-group.d'
+import type { FormItemProp } from 'element-plus/lib/components/form/src/form-item.d.ts'
+import type { UploadFile, UploadStatus, UploadRawFile } from 'element-plus/lib/components/upload/src/upload.d.ts'
+import type { Options } from '@popperjs/core'
+import type { ExtractPropTypes, PropType, Component, ComputedOptions, MethodOptions, ShallowRef, ComputedRef, StyleValue, ComponentOptionsMixin, VNodeProps, AllowedComponentProps, ComponentCustomProps,DefineComponent } from 'vue'
 
-export type DatePickerProps = import("vue").ExtractPropTypes<{
-  type: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => import("element-plus/lib/components/date-picker/src/date-picker.type").IDatePickerType & {}) | (() => import("element-plus/lib/components/date-picker/src/date-picker.type").IDatePickerType) | ((new (...args: any[]) => import("element-plus/lib/components/date-picker/src/date-picker.type").IDatePickerType & {}) | (() => import("element-plus/lib/components/date-picker/src/date-picker.type").IDatePickerType))[], unknown, unknown, "date", boolean>;
+export type DatePickerProps = ExtractPropTypes<{
+  type: EpPropFinalized<(new (...args: any[]) => IDatePickerType & {}) | (() => IDatePickerType) | ((new (...args: any[]) => IDatePickerType & {}) | (() => IDatePickerType))[], unknown, unknown, "date", boolean>;
   disabledDate: {
-    readonly type: import("vue").PropType<Function>;
+    readonly type: PropType<Function>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   cellClassName: {
-    readonly type: import("vue").PropType<Function>;
+    readonly type: PropType<Function>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  shortcuts: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<ArrayConstructor, unknown, unknown, () => never[], boolean>;
-  arrowControl: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  label: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-  tabindex: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
-  validateEvent: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  shortcuts: EpPropFinalized<ArrayConstructor, unknown, unknown, () => never[], boolean>;
+  arrowControl: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  label: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
+  tabindex: EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
+  validateEvent: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
   unlinkPanels: BooleanConstructor;
   disabledHours: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledHours>;
+    readonly type: PropType<GetDisabledHours>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   disabledMinutes: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledMinutes>;
+    readonly type: PropType<GetDisabledMinutes>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   disabledSeconds: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledSeconds>;
+    readonly type: PropType<GetDisabledSeconds>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   id: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>) | ((new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  name: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>))[], unknown, unknown, "", boolean>;
-  popperClass: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+  name: EpPropFinalized<(new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>) | ((new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>))[], unknown, unknown, "", boolean>;
+  popperClass: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
   format: StringConstructor;
   valueFormat: StringConstructor;
-  clearable: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-  clearIcon: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>, boolean>;
-  editable: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-  prefixIcon: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, "", boolean>;
+  clearable: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  clearIcon: EpPropFinalized<(new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>))[], unknown, unknown, DefineComponent<{}, {}, {}, ComputedOptions, MethodOptions, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{}>>, {}>, boolean>;
+  editable: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  prefixIcon: EpPropFinalized<(new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>))[], unknown, unknown, "", boolean>;
   size: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+    readonly type: PropType<EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  readonly: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  disabled: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  placeholder: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-  popperOptions: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => {}, boolean>;
-  modelValue: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => import("element-plus/lib/components/time-picker").ModelValueType & {}) | (() => import("element-plus/lib/components/time-picker").ModelValueType) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").ModelValueType & {}) | (() => import("element-plus/lib/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
-  rangeSeparator: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
+  readonly: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  disabled: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  placeholder: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+  popperOptions: EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
+  modelValue: EpPropFinalized<(new (...args: any[]) => ModelValueType & {}) | (() => ModelValueType) | ((new (...args: any[]) => ModelValueType & {}) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
+  rangeSeparator: EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
   startPlaceholder: StringConstructor;
   endPlaceholder: StringConstructor;
   defaultValue: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   defaultTime: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  isRange: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  isRange: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
 }>
 
-export type TimePickerProps = import("vue").ExtractPropTypes<{
+export type TimePickerProps = ExtractPropTypes<{
   isRange: {
     type: BooleanConstructor;
     default: boolean;
   };
   disabledDate: {
-    readonly type: import("vue").PropType<Function>;
+    readonly type: PropType<Function>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   cellClassName: {
-    readonly type: import("vue").PropType<Function>;
+    readonly type: PropType<Function>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  shortcuts: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<ArrayConstructor, unknown, unknown, () => never[], boolean>;
-  arrowControl: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  label: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-  tabindex: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
-  validateEvent: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  shortcuts: EpPropFinalized<ArrayConstructor, unknown, unknown, () => never[], boolean>;
+  arrowControl: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  label: EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
+  tabindex: EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
+  validateEvent: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
   unlinkPanels: BooleanConstructor;
   disabledHours: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledHours>;
+    readonly type: PropType<GetDisabledHours>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   disabledMinutes: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledMinutes>;
+    readonly type: PropType<GetDisabledMinutes>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   disabledSeconds: {
-    readonly type: import("vue").PropType<import("element-plus/lib/components/time-picker/src/props/shared").GetDisabledSeconds>;
+    readonly type: PropType<GetDisabledSeconds>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   id: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>) | ((new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  name: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").SingleOrRange<string> & {}) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<string>))[], unknown, unknown, "", boolean>;
-  popperClass: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+  name: EpPropFinalized<(new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>) | ((new (...args: any[]) => SingleOrRange<string> & {}) | (() => SingleOrRange<string>))[], unknown, unknown, "", boolean>;
+  popperClass: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
   format: StringConstructor;
   valueFormat: StringConstructor;
-  type: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-  clearable: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-  clearIcon: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>, boolean>;
-  editable: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-  prefixIcon: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, "", boolean>;
+  type: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+  clearable: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  clearIcon: EpPropFinalized<(new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>))[], unknown, unknown, DefineComponent<{}, {}, {}, ComputedOptions, MethodOptions, ComponentOptionsMixin, ComponentOptionsMixin, {}, string, VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{}>>, {}>, boolean>;
+  editable: EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
+  prefixIcon: EpPropFinalized<(new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>) | ((new (...args: any[]) => (string | Component<any, any, any, ComputedOptions, MethodOptions>) & {}) | (() => string | Component<any, any, any, ComputedOptions, MethodOptions>))[], unknown, unknown, "", boolean>;
   size: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+    readonly type: PropType<EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
-  readonly: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  disabled: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-  placeholder: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-  popperOptions: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => {}, boolean>;
-  modelValue: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<(new (...args: any[]) => import("element-plus/lib/components/time-picker").ModelValueType & {}) | (() => import("element-plus/lib/components/time-picker").ModelValueType) | ((new (...args: any[]) => import("element-plus/lib/components/time-picker").ModelValueType & {}) | (() => import("element-plus/lib/components/time-picker").ModelValueType))[], unknown, unknown, "", boolean>;
-  rangeSeparator: import("element-plus/lib/utils/vue/props/types.d.ts").EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
+  readonly: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  disabled: EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+  placeholder: EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+  popperOptions: EpPropFinalized<(new (...args: any[]) => Partial<Options>) | (() => Partial<Options>) | ((new (...args: any[]) => Partial<Options>) | (() => Partial<Options>))[], unknown, unknown, () => {}, boolean>;
+  modelValue: EpPropFinalized<(new (...args: any[]) => ModelValueType & {}) | (() => ModelValueType) | ((new (...args: any[]) => ModelValueType & {}) | (() => ModelValueType))[], unknown, unknown, "", boolean>;
+  rangeSeparator: EpPropFinalized<StringConstructor, unknown, unknown, "-", boolean>;
   startPlaceholder: StringConstructor;
   endPlaceholder: StringConstructor;
   defaultValue: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
   };
   defaultTime: {
-    readonly type: import("vue").PropType<import("element-plus/lib/utils/vue/props/types.d.ts").EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => import("element-plus/lib/components/time-picker").SingleOrRange<Date>))[], unknown, unknown>>;
+    readonly type: PropType<EpPropMergeType<(new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>) | ((new (...args: any[]) => Date | [Date, Date]) | (() => SingleOrRange<Date>))[], unknown, unknown>>;
     readonly required: false;
     readonly validator: ((val: unknown) => boolean) | undefined;
     __epPropKey: true;
@@ -223,8 +233,8 @@ export type RadioEvents = {
 }
 
 export type CheckboxEvents = {
-  onChange?: ((val: import("element-plus/lib/components/checkbox/src/checkbox").CheckboxValueType[]) => any) | undefined;
-  "onUpdate:modelValue"?: ((val: import("element-plus/es/components/checkbox/src/checkbox-group.d").CheckboxGroupValueType) => any) | undefined;
+  onChange?: ((val: CheckboxValueType[]) => any) | undefined;
+  "onUpdate:modelValue"?: ((val: CheckboxGroupValueType) => any) | undefined;
 }
 
 export type DatePickerEvents = {
@@ -253,7 +263,7 @@ export type SwitchEvents = {
 }
 
 export type FormEvents = {
-  onValidate?: ((prop: import("element-plus/lib/components/form/src/form-item.d.ts").FormItemProp, isValid: boolean, message: string) => any) | undefined;
+  onValidate?: ((prop: FormItemProp, isValid: boolean, message: string) => any) | undefined;
 }
 
 export type TableEvents = {
@@ -332,12 +342,12 @@ export type InputExposes = {
   blur: () => void;
   clear: () => void;
   focus: () => void;
-  input: import("vue").ShallowRef<HTMLInputElement | undefined>;
-  ref: import("vue").ComputedRef<HTMLInputElement | HTMLTextAreaElement | undefined>;
+  input: ShallowRef<HTMLInputElement | undefined>;
+  ref: ComputedRef<HTMLInputElement | HTMLTextAreaElement | undefined>;
   resizeTextarea: () => void;
   select: () => void;
-  textarea: import("vue").ShallowRef<HTMLTextAreaElement | undefined>;
-  textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
+  textarea: ShallowRef<HTMLTextAreaElement | undefined>;
+  textareaStyle: ComputedRef<StyleValue>;
 }
 
 export type InputNumberExposes = {
@@ -347,9 +357,9 @@ export type InputNumberExposes = {
 
 export type CascaderExposes = {
   getCheckedNodes: (leafOnly: boolean) => CascaderNode[] | undefined;
-  cascaderPanelRef: import("vue").ComputedRef<any>;
+  cascaderPanelRef: ComputedRef<any>;
   togglePopperVisible: (visible?: boolean) => void;
-  contentRef: import("vue").ComputedRef<any>;
+  contentRef: ComputedRef<any>;
 }
 
 export type DatePickerExposes = {
@@ -396,11 +406,11 @@ export type TreeExposes = {
 }
 
 export type UploadExposes = {
-  abort: (file: import("element-plus/lib/components/upload/src/upload.d.ts").UploadFile) => void;
+  abort: (file: UploadFile) => void;
   submit: () => void;
-  clearFiles: (states?: import("element-plus/lib/components/upload/src/upload.d.ts").UploadStatus[]) => void;
-  handleStart: (rawFile: import("element-plus/lib/components/upload/src/upload.d.ts").UploadRawFile) => void;
-  handleRemove: (file: import("element-plus/lib/components/upload/src/upload.d.ts").UploadFile | import("element-plus/lib/components/upload/src/upload.d.ts").UploadRawFile, rawFile?: import("element-plus/lib/components/upload/src/upload.d.ts").UploadRawFile | undefined) => void;
+  clearFiles: (states?: UploadStatus[]) => void;
+  handleStart: (rawFile: UploadRawFile) => void;
+  handleRemove: (file: UploadFile | UploadRawFile, rawFile?: UploadRawFile | undefined) => void;
 }
 export type TableExposes = {
   clearSelection: () => void;

@@ -1,4 +1,4 @@
-import type { Ref, Component } from 'vue'
+import type { Ref, Component, ExtractPropTypes } from 'vue'
 import type { InputProps, InputAutoSize } from 'element-plus/lib/components/input/src/input'
 import type { InputNumberProps } from 'element-plus/lib/components/input-number/src/input-number'
 import { cascaderProps as CascaderProps } from 'element-plus/lib/components/cascader/src/cascader'
@@ -17,7 +17,7 @@ import type { FormItemProps } from 'element-plus/lib/components/form/src/form-it
 import type { FormItemRule } from 'element-plus/es/components/form/src/types'
 import type { TableProps } from 'element-plus/lib/components/table/index'
 import _default from 'element-plus/lib/components/table/src/table-column/defaults'
-
+import { FormItemProp } from 'element-plus/lib/components/form/src/form-item.d.ts'
 import type {
   FormEvents,
   InputEvents,
@@ -57,7 +57,7 @@ import type { ValidateFieldsError } from 'async-validator';
  */
 export declare type RefFormGeneratorObj = {
   validate: (callback?: (isValid: boolean, invalidFields?: ValidateFieldsError) => void) => Promise<void>
-  scrollToField: (prop: import("element-plus/lib/components/form/src/form-item.d.ts").FormItemProp) => void;
+  scrollToField: (prop: FormItemProp) => void;
   submit: () => void
   reset: () => void
   $refs: Record<string, Ref<Expose | undefined>>
@@ -214,7 +214,7 @@ export type Cascader = {
   type: 'cascader'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<Omit<import("vue").ExtractPropTypes<typeof CascaderProps>, 'options'>>> & { options?: Ref<CascaderOption[]> | CascaderOption[] } & Partial<CascaderEvents> & CascaderSlots
+  control?: Control & CanWrite<Partial<Omit<ExtractPropTypes<typeof CascaderProps>, 'options'>>> & { options?: Ref<CascaderOption[]> | CascaderOption[] } & Partial<CascaderEvents> & CascaderSlots
 }
 
 export type Checkbox = {
@@ -256,7 +256,7 @@ export type Switch = {
   type: 'switch'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<SwitchProps>> & SwitchEvents
+  control?: Control & CanWrite<Partial<Omit<SwitchProps, 'loading'>>> & { loading?: Ref<boolean> | boolean } & SwitchEvents
 }
 
 export type Upload = {
@@ -324,10 +324,18 @@ export type TableOption = {
   slots?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
   children?: TableOption[]
   formatter?: (scope: { $index: number, row: Record<string, any> }) => any
-} & Partial<Omit<import("vue").ExtractPropTypes<typeof _default>, 'type' | 'formatter'>>
+} & Partial<Omit<ExtractPropTypes<typeof _default>, 'type' | 'formatter'>>
 
-type CanWrite<T> = {
-  -readonly [K in keyof T]: T[K] extends Record<any, any> ? CanWrite<T[K]> : T[K]
+export type StepsAttrs = {
+  space?: number | string
+  direction?: 'vertical' | 'horizontal'
+  processStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
+  finishStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
+  alignCenter?: boolean
+  simple?: boolean
+  stepsOption: StepsOption[]
+  onPrev?: (activeIndex: number, next: (activeIndex?: number) => void) => void
+  onNext?: (activeIndex: number, next: (activeIndex?: number) => void) => void
 }
 
 export type StepsOption = {
@@ -343,14 +351,6 @@ export type StepsOption = {
   }
 }
 
-export type StepsAttrs = {
-  space?: number | string
-  direction?: 'vertical' | 'horizontal'
-  processStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
-  finishStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
-  alignCenter?: boolean
-  simple?: boolean
-  stepsOption: StepsOption[]
-  onPrev?: (activeIndex: number, next: (activeIndex?: number) => void) => void
-  onNext?: (activeIndex: number, next: (activeIndex?: number) => void) => void
+type CanWrite<T> = {
+  -readonly [K in keyof T]: T[K] extends Record<any, any> ? CanWrite<T[K]> : T[K]
 }
