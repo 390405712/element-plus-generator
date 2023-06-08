@@ -33,22 +33,19 @@ export default defineComponent({
     }
 
     if (_attrs.formOption.length >= (column - 2) && _attrs?.type === 'search') setShow(false)
-
     expose(() => ({ ...RefFormGenerator.value, ...form, $refs }))
 
     return () => {
       function renderForm() {
         return (
           <ElForm class={`FormGenerator ${_attrs?.type === 'search' ? 'FormGeneratorSearch' : ''} ${_attrs?.type === 'dialog' ? 'FormGeneratorDialog' : ''}`} inline={_attrs?.type === 'search' ? true : false} validate-on-rule-change={false} label-width={_attrs.labelWidth || 'auto'} {..._attrs} ref={RefFormGenerator} >
-            {_attrs.formOption.map((formOption) => {
-              if (!(formOption.hasOwnProperty('show') && formOption.show === false)) return <ElFormItem {...formOption.formItem} key={formOption.formItem.prop}>{renderControl(formOption)}</ElFormItem>
-            })}
+            {_attrs.formOption.map((formOption) => <ElFormItem {...formOption.formItem} style={formOption.hasOwnProperty('show') && formOption.show === false ? 'display:none' : ''} key={formOption.formItem.prop}>{renderControl(formOption)}</ElFormItem>)}
             {_attrs.disabled === true || _attrs.noFooter || !_attrs.onSubmit
               ? ''
               : <ElFormItem
                 class={`btnItem ${more.value ? "searchItem" : ""}`}
                 v-slots={{
-                  default: () => slots?.default
+                  default: () => slots?.default && typeof slots?.default()[0].type === 'string'
                     ? <>{slots.default()[0].children}</>
                     : _attrs?.type === 'search'
                       ? renderSearchItem()
