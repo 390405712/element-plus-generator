@@ -40,6 +40,7 @@ import type {
   SwitchEvents,
   UploadSlots,
   Expose,
+  TableEvents,
   TableExposes
 } from './element-plus'
 import type { ValidateFieldsError } from 'async-validator';
@@ -69,21 +70,20 @@ export declare type RefFormGenerator = () => RefFormGeneratorObj
  * @description: 表单生成配置
  * @param model 表单数据对象
  * @param formOption 表单生成配置
- * @param rules 校验对象
  * @param noFooter 表单底部按钮
  * @param type search:搜索表单 dialog:dialog表单
  * @param column 判断展开收起的长度（包括搜索按钮那个容器）
  * @param slot 插槽（默认插槽是确定、取消按钮那块区域）
  */
-export type FormAttrs = {
-  model: Record<string, any>
+export type FormAttrs<T = Record<string, any>> = {
+  model: T
   formOption: FormOption[]
   noFooter?: boolean
   type?: 'search' | 'dialog'
   column?: number
   slot?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
 } & CanWrite<Partial<Omit<FormProps, 'model' | 'rules'>>> & FormEvents & {
-  onSubmit?: () => void
+  onSubmit?: (reset: 'init' | undefined) => void
 }
 
 /**
@@ -307,11 +307,10 @@ export declare type RefTableGenerator = () => RefTableGeneratorObj
  * @param tableOption 表格生成配置
  * @param loading 是否加载动画
  */
-export type TableAttrs = {
-  data: Record<string, any>[]
+export type TableAttrs<T = Record<string, any>> = {
   tableOption: TableOption[]
   loading?: boolean
-} & Partial<TableProps>
+} & Partial<TableProps<T>> & TableEvents
 
 /**
  * @description: 表格生成配置
