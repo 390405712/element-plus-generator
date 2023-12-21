@@ -77,7 +77,7 @@ export declare type RefFormGenerator = () => RefFormGeneratorObj
  */
 export type FormAttrs<T = Record<string, any>> = {
   model: T
-  formOption: FormOption[]
+  formOption: Array<FormOption>
   noFooter?: boolean
   type?: 'search' | 'dialog'
   column?: number
@@ -96,7 +96,11 @@ type FormItem = {
   prop: string
   style?: string
   class?: string
-  rules?: FormItemRule | FormItemRule[]
+  rules?: FormItemRule | Array<FormItemRule>
+  slots?: {
+    label?: ((...args: any[]) => JSX.Element | string | void) | string
+    error?: ((...args: any[]) => JSX.Element | string | void) | string
+  }
 } & CanWrite<Partial<Omit<FormItemProps, 'prop' | 'rules'>>>
 
 /**
@@ -156,10 +160,10 @@ export type TreeSelect = {
     tagType: 'success' | 'info' | 'warning' | 'danger'
     maxCollapseTags: number
   }> & Partial<TreeComponentProps> & TreeEvents & {
-    cacheData?: {
+    cacheData?: Array<{
       label?: string
-      value: string
-    }[]
+      value: string | number
+    }>
     slots?: {
       default?: ((...args: any[]) => JSX.Element | string | void) | string
     }
@@ -178,21 +182,21 @@ export type Select = {
     tagType: 'success' | 'info' | 'warning' | 'danger'
     maxCollapseTags: number
   }> & {
-    option: {
+    option: Array<{
       label?: string
-      value: string,
+      value: string | number,
       disabled?: boolean,
       slots?: {
         default?: ((...args: any[]) => JSX.Element | string | void) | string
       }
-    }[] | Ref<{
+    }> | Ref<Array<{
       label?: string
-      value: string,
+      value: string | number,
       disabled?: boolean,
       slots?: {
         default?: ((...args: any[]) => JSX.Element | string | void) | string
       }
-    }[]>
+    }>>
   }
 }
 
@@ -200,35 +204,35 @@ export type Radio = {
   type: 'radio'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<Array<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & RadioSlots)>> | Array<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & RadioSlots)> } & RadioEvents
 }
 
 export type RadioButton = {
   type: 'radio-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[]> | (Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & RadioSlots)[] } & RadioEvents
+  control?: Control & CanWrite<Partial<RadioGroupProps>> & { radioGroup: Ref<Array<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & RadioSlots)>> | Array<(Partial<Omit<RadioProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & RadioSlots)> } & RadioEvents
 }
 
 export type Cascader = {
   type: 'cascader'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<Omit<ExtractPropTypes<typeof CascaderProps>, 'options'>>> & { options?: Ref<CascaderOption[]> | CascaderOption[] } & Partial<CascaderEvents> & CascaderSlots
+  control?: Control & CanWrite<Partial<Omit<ExtractPropTypes<typeof CascaderProps>, 'options'>>> & { options?: Ref<Array<CascaderOption>> | Array<CascaderOption> } & Partial<CascaderEvents> & CascaderSlots
 }
 
 export type Checkbox = {
   type: 'checkbox'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value : string | number; label?: string | number } & CheckboxSlots)>> | Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)> } & CheckboxEvents
 }
 
 export type CheckboxButton = {
   type: 'checkbox-button'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[]> | (Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string; label?: string | number } & CheckboxSlots)[] } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)>> | Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)> } & CheckboxEvents
 }
 
 export type DatePicker = {
@@ -308,8 +312,9 @@ export declare type RefTableGenerator = () => RefTableGeneratorObj
  * @param loading 是否加载动画
  */
 export type TableAttrs<T = Record<string, any>> = {
-  tableOption: TableOption[]
+  tableOption: Array<TableOption>
   loading?: boolean
+  operationWidth?:number
 } & Partial<TableProps<T>> & TableEvents
 
 /**
@@ -321,7 +326,7 @@ export type TableAttrs<T = Record<string, any>> = {
 export type TableOption = {
   type?: 'selection' | 'index' | 'expand'
   slots?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
-  children?: TableOption[]
+  children?: Array<TableOption>
   formatter?: (scope: { $index: number, row: Record<string, any> }) => any
 } & Partial<Omit<ExtractPropTypes<typeof _default>, 'type' | 'formatter'>>
 
@@ -332,7 +337,7 @@ export type StepsAttrs = {
   finishStatus?: 'wait' | 'process' | 'finish' | 'error' | 'success'
   alignCenter?: boolean
   simple?: boolean
-  stepsOption: StepsOption[]
+  stepsOption: Array<StepsOption>
   onPrev?: (activeIndex: number, next: (activeIndex?: number) => void) => void
   onNext?: (activeIndex: number, next: (activeIndex?: number) => void) => void
 }

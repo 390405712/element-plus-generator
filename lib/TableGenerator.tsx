@@ -25,30 +25,29 @@ export default defineComponent({
       immediate: true,
     })
 
-    watch(() => _attrs.data, (val) => {
-      if (!slots?.operation || val.length === 0) return show.value = true
-      show.value = false
-      nextTick(() => {
-        let w = 0
-        document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
-          if (i.offsetWidth > w) w = i.offsetWidth
+    if (_attrs.operationWidth) {
+      width.value = _attrs.operationWidth
+      show.value = true
+    } else {
+      watch(() => _attrs.data, (val) => {
+        if (!slots?.operation || (Array.isArray(val) && val.length === 0)) return show.value = true
+        show.value = false
+        nextTick(() => {
+          let w = 0
+          document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
+            if (i.offsetWidth > w) w = i.offsetWidth
+          })
+          width.value = w > 0 ? w + 32 : 'auto'
+          show.value = true
         })
-        width.value = w > 0 ? w + 32 : 'auto'
-        show.value = true
+      }, {
+        immediate: true,
       })
-    }, {
-      immediate: true,
-    })
+    }
 
     expose(() => (RefTableGenerator.value))
 
     return () => {
-      // function renderIndexColumn() {
-      //   return <ElTableColumn type="index" fixed="left" align="left" width="60" label="序号"></ElTableColumn>
-      // }
-      // function renderSelectionColumn() {
-      //   return <ElTableColumn type="selection" fixed="left" width="60"></ElTableColumn>
-      // }
       function renderColumn(tableOption: TableOption[]) {
         return tableOption.map((item) => {
           if (['selection', 'index', 'expand'].includes(item.type!)) {
@@ -94,8 +93,6 @@ export default defineComponent({
                 : ''
             }}
           >
-            {/* {_attrs.onSelectionChange ? renderSelectionColumn() : ''} */}
-            {/* {_attrs.showIndex === false ? '' : renderIndexColumn()} */}
             {renderColumn(_attrs.tableOption)}
             {slots?.operation ? <ElTableColumn fixed="right" label="操作"
               width={width.value}
@@ -108,12 +105,7 @@ export default defineComponent({
       }
       function renderOriginTable() {
         return (
-          <ElTable
-            {...attrs}
-            class={`TableGenerator el-table-${el}`}
-          >
-            {/* {_attrs.onSelectionChange ? renderSelectionColumn() : ''} */}
-            {/* {_attrs.showIndex === false ? '' : renderIndexColumn()} */}
+          <ElTable {...attrs} class={`TableGenerator el-table-${el}`}>
             <ElTableColumn fixed="right"
               v-slots={{
                 default: (scope: { $index: number, row: Record<string, any> }) => <div style="display:inline-block;opacity:0" class='content-wrapper content-wrapper-width'>{slots.operation?.({ $index: scope.$index, row: scope.row })}</div>

@@ -1,10 +1,47 @@
 import type { FormItemRule } from 'element-plus'
-import type { FormOption } from './type.d'
+import type { FormOption, TableOption, Select, FormItem } from './type.d'
 
 type option = {
   label: string
   value: string,
 }
+
+/**
+ * @description: 获取指定tableOption
+ * @param tableOptions tableOption列表
+ * @param prop prop值
+ */
+export const getTableOption = <T = TableOption>(tableOptions: TableOption[], prop: string): T => {
+  return tableOptions.find(i => i.prop === prop) as T
+}
+
+/**
+ * @description: 指定formOption装载option
+ * @param formOptions formOption列表
+ * @param prop formItem.prop值
+ * @param options option数组
+ */
+export const setOption = (formOptions: Array<{
+  type: string
+  formItem: FormItem,
+  control: { option: Array<Record<string, any>> }
+}>, prop: string, options: Array<Record<string, any>>) => {
+  const item = formOptions.find(i => i.formItem.prop === prop)
+  if (item && item?.control?.option) item.control.option = options
+}
+
+/**
+ * @description: 获取指定formOption
+ * @param formOptions formOption列表
+ * @param prop formItem.prop值
+ */
+export const getFormOption = <T = Select>(formOptions: Array<{
+  type: string
+  formItem: FormItem
+}>, prop: string): T => {
+  return formOptions.find(i => i.formItem.prop === prop) as T
+}
+
 /**
  * @description: 生成表单控件使用的option
  * @param arr 原始list

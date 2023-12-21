@@ -2,7 +2,7 @@ import { ElButton, ElForm, ElFormItem, ElInput, ElInputNumber, ElSelect, ElOptio
 import { Search, Refresh, ArrowUp } from '@element-plus/icons-vue'
 import { defineComponent, ref } from 'vue'
 import type { Ref } from 'vue'
-import type { FormAttrs, RefFormGenerator, RefFormGeneratorObj, FormOption } from './type.d'
+import type { FormAttrs, RefFormGeneratorObj, FormOption } from './type.d'
 import type { Expose } from './element-plus'
 
 export default defineComponent({
@@ -39,7 +39,14 @@ export default defineComponent({
       function renderForm() {
         return (
           <ElForm class={`FormGenerator ${_attrs?.type === 'search' ? 'FormGeneratorSearch' : ''} ${_attrs?.type === 'dialog' ? 'FormGeneratorDialog' : ''}`} inline={_attrs?.type === 'search' ? true : false} validate-on-rule-change={false} label-width={_attrs.labelWidth || 'auto'} {..._attrs} ref={RefFormGenerator} >
-            {_attrs.formOption.map((formOption) => <ElFormItem {...formOption.formItem} style={formOption.hasOwnProperty('show') && formOption.show === false ? 'display:none' : ''} key={formOption.formItem.prop}>{renderControl(formOption)}</ElFormItem>)}
+            {_attrs.formOption.map((formOption) => <ElFormItem
+              {...formOption.formItem}
+              style={formOption.hasOwnProperty('show') && formOption.show === false ? 'display:none' : ''}
+              key={formOption.formItem.prop}
+              v-slots={{ ...formOption.formItem?.slots }}
+            >
+              {renderControl(formOption)}
+            </ElFormItem>)}
             {_attrs.disabled === true || _attrs.noFooter || !_attrs.onSubmit
               ? ''
               : <ElFormItem
