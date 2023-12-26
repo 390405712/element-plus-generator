@@ -61,6 +61,7 @@ export declare type RefFormGeneratorObj = {
   scrollToField: (prop: FormItemProp) => void;
   submit: () => void
   reset: () => void
+  cancel: (...arg: any) => void
   $refs: Record<string, Ref<Expose | undefined>>
 } & Pick<FormContext, 'resetFields' | 'validateField' | 'clearValidate'>
 
@@ -84,6 +85,7 @@ export type FormAttrs<T = Record<string, any>> = {
   slot?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
 } & CanWrite<Partial<Omit<FormProps, 'model' | 'rules'>>> & FormEvents & {
   onSubmit?: (reset: 'init' | undefined) => void
+  onCancel?: (...arg: any) => void
 }
 
 /**
@@ -225,7 +227,7 @@ export type Checkbox = {
   type: 'checkbox'
   show?: boolean
   formItem: FormItem
-  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value : string | number; label?: string | number } & CheckboxSlots)>> | Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)> } & CheckboxEvents
+  control?: Control & CanWrite<Partial<CheckboxGroupProps>> & { checkboxGroup: Ref<Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)>> | Array<(Partial<Omit<CheckboxProps, 'modelValue' | 'label'>> & { value: string | number; label?: string | number } & CheckboxSlots)> } & CheckboxEvents
 }
 
 export type CheckboxButton = {
@@ -314,7 +316,7 @@ export declare type RefTableGenerator = () => RefTableGeneratorObj
 export type TableAttrs<T = Record<string, any>> = {
   tableOption: Array<TableOption>
   loading?: boolean
-  operationWidth?:number
+  operationWidth?: number
 } & Partial<TableProps<T>> & TableEvents
 
 /**

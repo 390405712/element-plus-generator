@@ -13,16 +13,28 @@ export default defineComponent({
     const $refs: Record<string, Ref<Expose | undefined>> = {}
     const more = ref(false)
     const column = (!isNaN(_attrs.column!) ? (_attrs.column! >= 4 ? _attrs.column : 4) : 4) as number
-    const form: Pick<RefFormGeneratorObj, 'submit' | 'reset'> = {
+    const form: Pick<RefFormGeneratorObj, 'submit' | 'reset' | 'cancel'> = {
       submit: () => {
         RefFormGenerator.value!.validate((isValid) => {
           if (isValid) emit('submit')
         })
       },
+      cancel: (e: Event) => {
+        if (_attrs.onCancel) {
+          emit('cancel')
+        } else {
+          getDialogEl(e.target as HTMLElement).querySelector<HTMLElement>('.el-dialog__headerbtn')!?.click?.()
+        }
+      },
       reset: () => {
         RefFormGenerator.value!.resetFields()
         emit('submit', 'init')
       }
+    }
+
+    function getDialogEl(el: HTMLElement): HTMLElement {
+      if (!el.parentElement!.classList.value.split(' ').includes('el-dialog')) return getDialogEl(el.parentElement as HTMLDivElement)
+      return el.parentElement!
     }
 
     function setShow(bool: boolean) {
@@ -59,13 +71,7 @@ export default defineComponent({
                       : <>
                         {
                           _attrs?.type === 'dialog'
-                            ? <ElButton onClick={(e: Event) => {
-                              function getDialogEl(el: HTMLElement): HTMLElement {
-                                if (!el.parentElement!.classList.value.split(' ').includes('el-dialog')) return getDialogEl(el.parentElement as HTMLDivElement)
-                                return el.parentElement!
-                              }
-                              getDialogEl(e.target as HTMLElement).querySelector<HTMLElement>('.el-dialog__headerbtn')!?.click?.()
-                            }}>取消</ElButton>
+                            ? <ElButton onClick={form.cancel}>取消</ElButton>
                             : ''
                         }
                         <ElButton type="primary" onClick={form.submit}>确定</ElButton>
