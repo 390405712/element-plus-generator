@@ -54,6 +54,7 @@ import type { ValidateFieldsError } from 'async-validator';
  * @param scrollToField 滚动到指定的字段
  * @param submit 表单走验证后回调传入的方法
  * @param reset 表单重置并回调submit
+ * @param cancel dialog表单返回
  * @param $refs 表单中所有控件expose内容的入口
  */
 export declare type RefFormGeneratorObj = {

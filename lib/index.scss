@@ -97,6 +97,10 @@
   .el-scrollbar__view {
     width: 100%;
   }
+  .content-wrapper{
+    white-space: nowrap;
+    display: inline-block;
+  }
 }
 
 .StepsGenerator {

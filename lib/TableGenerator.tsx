@@ -8,9 +8,8 @@ export default defineComponent({
     const RefTableGenerator = ref<RefTableGeneratorObj>()
     const _attrs = attrs as TableAttrs
     let loading: any
-    let el = new Date().getTime()
-    let show = ref(false)
-    let width = ref<number | 'auto'>(0)
+    const el = new Date().getTime()
+    const width = ref<number | 'auto'>('auto')
     watch(() => _attrs.loading, (val) => {
       if (val) {
         nextTick(() => {
@@ -27,24 +26,19 @@ export default defineComponent({
 
     if (_attrs.operationWidth) {
       width.value = _attrs.operationWidth
-      show.value = true
     } else {
-      watch(() => _attrs.data, (val) => {
-        if (!slots?.operation || (Array.isArray(val) && val.length === 0)) return show.value = true
-        show.value = false
+      watch(() => _attrs.data, () => {
         nextTick(() => {
-          let w = 0
-          document.querySelectorAll<HTMLDivElement>('.content-wrapper-width').forEach((i) => {
-            if (i.offsetWidth > w) w = i.offsetWidth
+          const arr: number[] = []
+          document.querySelectorAll<HTMLDivElement>(`.el-table-${el} .content-wrapper`).forEach((i) => {
+            arr.push(i.offsetWidth)
           })
-          width.value = w > 0 ? w + 32 : 'auto'
-          show.value = true
+          width.value = Math.max(...arr) + 32
         })
       }, {
         immediate: true,
       })
     }
-
     expose(() => (RefTableGenerator.value))
 
     return () => {
@@ -103,19 +97,8 @@ export default defineComponent({
           </ElTable>
         )
       }
-      function renderOriginTable() {
-        return (
-          <ElTable {...attrs} class={`TableGenerator el-table-${el}`}>
-            <ElTableColumn fixed="right"
-              v-slots={{
-                default: (scope: { $index: number, row: Record<string, any> }) => <div style="display:inline-block;opacity:0" class='content-wrapper content-wrapper-width'>{slots.operation?.({ $index: scope.$index, row: scope.row })}</div>
-              }}
-            />
-          </ElTable>
-        )
-      }
       return (
-        <>{show.value ? renderTable() : renderOriginTable()}</>
+        <>{renderTable()}</>
       )
     }
   }
