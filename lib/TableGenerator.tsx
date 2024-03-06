@@ -9,7 +9,7 @@ export default defineComponent({
     const _attrs = attrs as TableAttrs
     let loading: any
     const el = new Date().getTime()
-    const width = ref<number | 'auto'>('auto')
+    const width = ref<number | string>('auto')
     watch(() => _attrs.loading, (val) => {
       if (val) {
         nextTick(() => {
@@ -29,6 +29,9 @@ export default defineComponent({
     } else {
       watch(() => _attrs.data, () => {
         nextTick(() => {
+          if (isNaN(width.value as number) && Array.isArray(_attrs.data)) {
+            if (width.value as number > 32 && _attrs.data.length === 0) return
+          }
           const arr: number[] = []
           document.querySelectorAll<HTMLDivElement>(`.el-table-${el} .content-wrapper`).forEach((i) => {
             arr.push(i.offsetWidth)

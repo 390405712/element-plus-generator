@@ -1,6 +1,6 @@
-(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}.TableGenerator .content-wrapper{white-space:nowrap;display:inline-block}.StepsGenerator{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-start;gap:10px}.StepsGenerator .btn-group{width:100%;display:flex;justify-content:center;gap:10px}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as A, ref as f, watch as K, nextTick as J, createVNode as r, Fragment as k, mergeProps as h, openBlock as m, createElementBlock as D, createElementVNode as F, createTextVNode as G, isVNode as o } from "vue";
-import { ElLoading as i, ElTable as O, ElTableColumn as S, ElEmpty as ee, ElForm as ae, ElFormItem as Q, ElButton as $, ElUpload as le, ElSwitch as re, ElTimePicker as ue, ElDatePicker as de, ElCheckboxGroup as X, ElCheckboxButton as ce, ElCheckbox as te, ElRadioGroup as Z, ElRadioButton as se, ElRadio as ne, ElCascader as he, ElTreeSelect as ve, ElSelect as be, ElOption as ye, ElInputNumber as ge, ElInput as _e, ElSteps as Ee, ElStep as we } from "element-plus";
-const He = /* @__PURE__ */ A({
+(function(){ try {var elementStyle = document.createElement('style'); elementStyle.appendChild(document.createTextNode(".FormGenerator.FormGeneratorSearch{display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;flex-direction:row;gap:15px 10px}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item{width:calc(25% - 8px);margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem{margin:0}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__label-wrap{display:none}.FormGenerator.FormGeneratorSearch.el-form--inline .el-form-item.btnItem .el-form-item__content{flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline){padding-bottom:45px}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem{margin:0;height:64px;position:absolute;bottom:0;right:0;width:100%;box-shadow:1px 2px 10px #9ab7ff80;z-index:1;z-index:11;padding:0 16px;box-sizing:border-box}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .btnItem .el-form-item__content{display:flex;justify-content:flex-end;align-items:center;flex-wrap:nowrap}.FormGenerator.FormGeneratorDialog.el-form--default:not(.el-form--inline) .el-form-item__content>div{width:100%}.FormGenerator .searchItem{flex-grow:1;flex-shrink:0}.FormGenerator .searchItem .el-form-item__content{justify-content:flex-end}.FormGenerator .expandBtn i{transition:all .3s}.FormGenerator .expandBtn.down i{transform:rotate(180deg)}.FormGenerator .el-select,.FormGenerator .el-input,.FormGenerator .el-cascader,.FormGenerator .el-date-editor.el-input,.FormGenerator .el-date-editor.el-input__wrapper,.TableGenerator .el-scrollbar__view{width:100%}.TableGenerator .content-wrapper{white-space:nowrap;display:inline-block}.StepsGenerator{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-start;gap:10px}.StepsGenerator .btn-group{width:100%;display:flex;justify-content:center;gap:10px}")); document.head.appendChild(elementStyle);} catch(e) {console.error('vite-plugin-css-injected-by-js', e);} })();import { defineComponent as S, ref as f, watch as K, nextTick as J, createVNode as r, Fragment as k, mergeProps as h, openBlock as m, createElementBlock as D, createElementVNode as F, createTextVNode as G, isVNode as o } from "vue";
+import { ElLoading as i, ElTable as O, ElTableColumn as C, ElEmpty as ee, ElForm as ae, ElFormItem as Q, ElButton as $, ElUpload as le, ElSwitch as re, ElTimePicker as ue, ElDatePicker as de, ElCheckboxGroup as X, ElCheckboxButton as ce, ElCheckbox as te, ElRadioGroup as Z, ElRadioButton as se, ElRadio as ne, ElCascader as he, ElTreeSelect as ve, ElSelect as be, ElOption as ye, ElInputNumber as ge, ElInput as _e, ElSteps as Ee, ElStep as we } from "element-plus";
+const He = /* @__PURE__ */ S({
   name: "TableGenerator",
   setup(n, {
     expose: b,
@@ -10,31 +10,33 @@ const He = /* @__PURE__ */ A({
   }) {
     const a = f(), u = v;
     let s;
-    const g = (/* @__PURE__ */ new Date()).getTime(), _ = f("auto");
+    const _ = (/* @__PURE__ */ new Date()).getTime(), g = f("auto");
     return K(() => u.loading, (E) => {
       E ? J(() => {
         s = i.service({
-          target: `.el-table-${g}`
+          target: `.el-table-${_}`
         });
       }) : s == null || s.close();
     }, {
       immediate: !0
-    }), u.operationWidth ? _.value = u.operationWidth : K(() => u.data, () => {
+    }), u.operationWidth ? g.value = u.operationWidth : K(() => u.data, () => {
       J(() => {
+        if (isNaN(g.value) && Array.isArray(u.data) && g.value > 32 && u.data.length === 0)
+          return;
         const E = [];
-        document.querySelectorAll(`.el-table-${g} .content-wrapper`).forEach((p) => {
+        document.querySelectorAll(`.el-table-${_} .content-wrapper`).forEach((p) => {
           E.push(p.offsetWidth);
-        }), _.value = Math.max(...E) + 32;
+        }), g.value = Math.max(...E) + 32;
       });
     }, {
       immediate: !0
     }), b(() => a.value), () => {
       function E(I) {
-        return I.map((t) => ["selection", "index", "expand"].includes(t.type) ? r(S, h({
+        return I.map((t) => ["selection", "index", "expand"].includes(t.type) ? r(C, h({
           type: t.type
         }, t), {
           ...t == null ? void 0 : t.slots
-        }) : r(S, h({
+        }) : r(C, h({
           "show-overflow-tooltip": !0,
           align: "left"
         }, t), {
@@ -56,12 +58,12 @@ const He = /* @__PURE__ */ A({
           ref: a,
           stripe: !0
         }, u, {
-          class: `TableGenerator el-table-${g}`
+          class: `TableGenerator el-table-${_}`
         }), {
-          default: () => [E(u.tableOption), l != null && l.operation ? r(S, {
+          default: () => [E(u.tableOption), l != null && l.operation ? r(C, {
             fixed: "right",
             label: "操作",
-            width: _.value
+            width: g.value
           }, {
             default: (I) => {
               var t;
@@ -114,7 +116,7 @@ var $e = /* @__PURE__ */ U(xe, [["render", Ve], ["__file", "arrow-up.vue"]]), Ge
 }, fe = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 1024 1024"
-}, Ce = /* @__PURE__ */ F(
+}, Ae = /* @__PURE__ */ F(
   "path",
   {
     fill: "currentColor",
@@ -123,13 +125,13 @@ var $e = /* @__PURE__ */ U(xe, [["render", Ve], ["__file", "arrow-up.vue"]]), Ge
   null,
   -1
   /* HOISTED */
-), Se = [
-  Ce
+), Ce = [
+  Ae
 ];
-function Ae(n, b, v, l, y, a) {
-  return m(), D("svg", fe, Se);
+function Se(n, b, v, l, y, a) {
+  return m(), D("svg", fe, Ce);
 }
-var me = /* @__PURE__ */ U(Ge, [["render", Ae], ["__file", "refresh.vue"]]), De = {
+var me = /* @__PURE__ */ U(Ge, [["render", Se], ["__file", "refresh.vue"]]), De = {
   name: "Search"
 }, Fe = {
   xmlns: "http://www.w3.org/2000/svg",
@@ -150,7 +152,7 @@ function Te(n, b, v, l, y, a) {
   return m(), D("svg", Fe, Ye);
 }
 var Me = /* @__PURE__ */ U(De, [["render", Te], ["__file", "search.vue"]]);
-const Ke = /* @__PURE__ */ A({
+const Ke = /* @__PURE__ */ S({
   name: "FormGenerator",
   setup(n, {
     expose: b,
@@ -158,7 +160,7 @@ const Ke = /* @__PURE__ */ A({
     slots: l,
     emit: y
   }) {
-    const a = v, u = f(), s = {}, g = f(!1), _ = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, E = {
+    const a = v, u = f(), s = {}, _ = f(!1), g = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, E = {
       submit: () => {
         u.value.validate((t) => {
           t && y("submit");
@@ -176,11 +178,11 @@ const Ke = /* @__PURE__ */ A({
       return t.parentElement.classList.value.split(" ").includes("el-dialog") ? t.parentElement : p(t.parentElement);
     }
     function I(t) {
-      g.value = t, a.formOption.forEach((w, V) => {
-        V > _ - 2 && (w.show = t);
+      _.value = t, a.formOption.forEach((w, V) => {
+        V > g - 2 && (w.show = t);
       });
     }
-    return a.formOption.length >= _ - 2 && (a == null ? void 0 : a.type) === "search" && I(!1), b(() => ({
+    return a.formOption.length >= g - 2 && (a == null ? void 0 : a.type) === "search" && I(!1), b(() => ({
       ...u.value,
       ...E,
       $refs: s
@@ -195,16 +197,16 @@ const Ke = /* @__PURE__ */ A({
           ref: u
         }), {
           default: () => [a.formOption.map((e) => {
-            var C;
+            var A;
             return r(Q, h(e.formItem, {
               style: e.hasOwnProperty("show") && e.show === !1 ? "display:none" : "",
               key: e.formItem.prop
             }), {
               default: () => [w(e)],
-              ...(C = e.formItem) == null ? void 0 : C.slots
+              ...(A = e.formItem) == null ? void 0 : A.slots
             });
           }), a.disabled === !0 || a.noFooter || !a.onSubmit ? "" : r(Q, {
-            class: `btnItem ${g.value ? "searchItem" : ""}`
+            class: `btnItem ${_.value ? "searchItem" : ""}`
           }, {
             default: () => l != null && l.default && typeof (l == null ? void 0 : l.default()[0].type) == "string" ? r(k, null, [l.default()[0].children]) : (a == null ? void 0 : a.type) === "search" ? V() : r(k, null, [(a == null ? void 0 : a.type) === "dialog" ? r($, {
               onClick: E.cancel
@@ -221,7 +223,7 @@ const Ke = /* @__PURE__ */ A({
         });
       }
       function w(e) {
-        var C, Y, T, M, B, N, j, P, R, z, q, L, W;
+        var A, Y, T, M, N, B, j, P, R, z, q, L, W;
         switch (s[e.formItem.prop] = f(), e.type) {
           case "input":
             return r(_e, h({
@@ -232,7 +234,7 @@ const Ke = /* @__PURE__ */ A({
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (d) => a.model[e.formItem.prop] = d
             }), {
-              ...(C = e == null ? void 0 : e.control) == null ? void 0 : C.slots
+              ...(A = e == null ? void 0 : e.control) == null ? void 0 : A.slots
             });
           case "input-number":
             return r(ge, h({
@@ -368,7 +370,7 @@ const Ke = /* @__PURE__ */ A({
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (d) => a.model[e.formItem.prop] = d
             }), {
-              ...(B = e == null ? void 0 : e.control) == null ? void 0 : B.slots
+              ...(N = e == null ? void 0 : e.control) == null ? void 0 : N.slots
             });
           case "time-picker":
             return r(ue, h({
@@ -397,7 +399,7 @@ const Ke = /* @__PURE__ */ A({
               }, {
                 default: () => [G("上传文件")]
               }),
-              ...(N = e == null ? void 0 : e.control) == null ? void 0 : N.slots
+              ...(B = e == null ? void 0 : e.control) == null ? void 0 : B.slots
             });
           case "slot":
             return (P = (j = e == null ? void 0 : e.control) == null ? void 0 : j.slots) != null && P.default && typeof ((z = (R = e == null ? void 0 : e.control) == null ? void 0 : R.slots) == null ? void 0 : z.default) == "function" ? r(k, null, [(L = (q = e.control.slots).default) == null ? void 0 : L.call(q, {
@@ -421,26 +423,26 @@ const Ke = /* @__PURE__ */ A({
           icon: me
         }, {
           default: () => [G("重置")]
-        }), a.type === "search" && a.formOption.length > _ - 1 ? r(k, null, [r($, {
+        }), a.type === "search" && a.formOption.length > g - 1 ? r(k, null, [r($, {
           text: !0,
           type: "primary",
-          class: `expandBtn ${g.value ? "up" : "down"}`,
+          class: `expandBtn ${_.value ? "up" : "down"}`,
           onClick: () => {
-            I(!g.value);
+            I(!_.value);
           },
           icon: $e
         }, {
-          default: () => [g.value ? "收起" : "展开"]
+          default: () => [_.value ? "收起" : "展开"]
         })]) : ""]);
       }
       return t();
     };
   }
 });
-function Be(n) {
+function Ne(n) {
   return typeof n == "function" || Object.prototype.toString.call(n) === "[object Object]" && !o(n);
 }
-const Je = /* @__PURE__ */ A({
+const Je = /* @__PURE__ */ S({
   name: "StepsGenerator",
   setup(n, {
     expose: b,
@@ -450,20 +452,20 @@ const Je = /* @__PURE__ */ A({
   }) {
     const a = v, u = f(0);
     function s() {
-      a != null && a.onPrev && typeof (a == null ? void 0 : a.onPrev) == "function" ? a.onPrev(u.value, (_) => {
-        _ ? u.value = _ : u.value === 0 || u.value--;
+      a != null && a.onPrev && typeof (a == null ? void 0 : a.onPrev) == "function" ? a.onPrev(u.value, (g) => {
+        g ? u.value = g : u.value === 0 || u.value--;
       }) : u.value === 0 || u.value--;
     }
-    function g() {
-      a != null && a.onNext && typeof (a == null ? void 0 : a.onNext) == "function" ? a.onNext(u.value, (_) => {
-        _ ? u.value = _ : u.value === a.stepsOption.length - 1 || u.value++;
+    function _() {
+      a != null && a.onNext && typeof (a == null ? void 0 : a.onNext) == "function" ? a.onNext(u.value, (g) => {
+        g ? u.value = g : u.value === a.stepsOption.length - 1 || u.value++;
       }) : u.value === a.stepsOption.length - 1 || u.value++;
     }
     return b({
       prev: s,
-      next: g
+      next: _
     }), () => {
-      function _() {
+      function g() {
         let E;
         return r("div", {
           class: "StepsGenerator"
@@ -471,7 +473,7 @@ const Je = /* @__PURE__ */ A({
           "align-center": !0
         }, a, {
           active: u.value
-        }), Be(E = a.stepsOption.map((p) => r(we, p, {
+        }), Ne(E = a.stepsOption.map((p) => r(we, p, {
           ...p == null ? void 0 : p.slots
         }))) ? E : {
           default: () => [E]
@@ -492,15 +494,15 @@ const Je = /* @__PURE__ */ A({
         }) : "", r($, {
           type: "primary",
           plain: !0,
-          onClick: g
+          onClick: _
         }, {
           default: () => [G(" "), u.value === a.stepsOption.length - 1 ? "提交" : "下一步"]
         })])])]);
       }
-      return _();
+      return g();
     };
   }
-}), Ne = (n, b) => n.find((v) => v.prop === b), je = (n, b, v) => {
+}), Be = (n, b) => n.find((v) => v.prop === b), je = (n, b, v) => {
   var y;
   const l = n.find((a) => a.formItem.prop === b);
   l && ((y = l == null ? void 0 : l.control) != null && y.option) && (l.control.option = v);
@@ -514,8 +516,8 @@ const Je = /* @__PURE__ */ A({
       label: typeof u == "string" ? u : u[b],
       value: typeof u == "string" ? u : u[v]
     };
-    l && a.forEach((g) => {
-      s[g] = u[g];
+    l && a.forEach((_) => {
+      s[_] = u[_];
     }), y.push(s);
   }), y;
 }, ze = (n, b = []) => {
@@ -540,16 +542,16 @@ const Je = /* @__PURE__ */ A({
     var a, u, s;
     const y = { required: !0, message: `请${v[l.type] ?? "完善"}${l.formItem.label ?? ""}`, trigger: "change" };
     if (!b.includes(l.formItem.prop) && (((a = l.formItem) == null ? void 0 : a.rules) instanceof Object ? l.formItem.rules = [y, l.formItem.rules] : Array.isArray((u = l.formItem) == null ? void 0 : u.rules) ? l.formItem.rules.unshift(y) : l.formItem.rules = [y], ((s = l.formItem) == null ? void 0 : s.rules) instanceof Array))
-      for (let g = 0; g < l.formItem.rules.length; g++) {
-        let _ = l.formItem.rules[g];
-        _.message || (_.message = "格式有误");
+      for (let _ = 0; _ < l.formItem.rules.length; _++) {
+        let g = l.formItem.rules[_];
+        g.message || (g.message = "格式有误");
       }
   }), n;
 }, Qe = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   getFormOption: Pe,
   getOption: Re,
-  getTableOption: Ne,
+  getTableOption: Be,
   setOption: je,
   setRequired: ze
 }, Symbol.toStringTag, { value: "Module" }));
