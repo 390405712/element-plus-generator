@@ -21,7 +21,7 @@ const He = /* @__PURE__ */ S({
       immediate: !0
     }), u.operationWidth ? g.value = u.operationWidth : K(() => u.data, () => {
       J(() => {
-        if (isNaN(g.value) && Array.isArray(u.data) && g.value > 32 && u.data.length === 0)
+        if (!isNaN(g.value) && Array.isArray(u.data) && g.value > 32 && u.data.length === 0)
           return;
         const E = [];
         document.querySelectorAll(`.el-table-${_} .content-wrapper`).forEach((p) => {

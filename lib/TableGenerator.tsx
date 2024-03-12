@@ -29,7 +29,7 @@ export default defineComponent({
     } else {
       watch(() => _attrs.data, () => {
         nextTick(() => {
-          if (isNaN(width.value as number) && Array.isArray(_attrs.data)) {
+          if (!isNaN(width.value as number) && Array.isArray(_attrs.data)) {
             if (width.value as number > 32 && _attrs.data.length === 0) return
           }
           const arr: number[] = []
