@@ -14,7 +14,8 @@ const Ke = /* @__PURE__ */ f({
     return J(() => u.loading, (x) => {
       x ? Q(() => {
         s = O.service({
-          target: `.el-table-${_}`
+          target: `.el-table-${_}`,
+          text: "加载中"
         });
       }) : s == null || s.close();
     }, {

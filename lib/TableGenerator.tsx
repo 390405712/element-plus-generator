@@ -14,7 +14,8 @@ export default defineComponent({
       if (val) {
         nextTick(() => {
           loading = ElLoading.service({
-            target: `.el-table-${el}`
+            target: `.el-table-${el}`,
+            text:'加载中'
           })
         })
       } else {
