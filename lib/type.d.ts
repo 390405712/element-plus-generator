@@ -76,6 +76,7 @@ export declare type RefFormGenerator = () => RefFormGeneratorObj
  * @param type search:搜索表单 dialog:dialog表单
  * @param column 判断展开收起的长度（包括搜索按钮那个容器）
  * @param slot 插槽（默认插槽是确定、取消按钮那块区域）
+ * @param loading  确定按钮loading
  */
 export type FormAttrs<T = Record<string, any>> = {
   model: T
@@ -84,6 +85,7 @@ export type FormAttrs<T = Record<string, any>> = {
   type?: 'search' | 'dialog'
   column?: number
   slot?: Record<string, ((...args: any[]) => JSX.Element | string | void) | string>
+  loading?: boolean
 } & CanWrite<Partial<Omit<FormProps, 'model' | 'rules'>>> & FormEvents & {
   onSubmit?: (reset: 'init' | undefined) => void
   onCancel?: (...arg: any) => void

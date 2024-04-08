@@ -74,7 +74,7 @@ export default defineComponent({
                             ? <ElButton onClick={form.cancel}>取消</ElButton>
                             : ''
                         }
-                        <ElButton type="primary" onClick={form.submit}>确定</ElButton>
+                        <ElButton type="primary" onClick={form.submit} loading={_attrs.loading}>确定</ElButton>
                       </>,
                   label: () => ''
                 }}
@@ -87,7 +87,7 @@ export default defineComponent({
         $refs[formOption.formItem.prop] = ref()
         switch (formOption.type) {
           case 'input':
-            return <ElInput ref={$refs[formOption.formItem.prop]} clearable={true} maxlength={30} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slots }} />
+            return <ElInput ref={$refs[formOption.formItem.prop]} clearable={true} maxlength={formOption?.control?.type === 'textarea' ? 100 :30} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slots }} />
             break;
           case 'input-number':
             return <ElInputNumber ref={$refs[formOption.formItem.prop]} min={0} max={100} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} />
