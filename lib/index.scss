@@ -58,7 +58,7 @@
       }
     }
 
-    .el-form-item__content>div {
+    .el-form-item__content>div:not(.el-switch) {
       width: 100%;
     }
   }
