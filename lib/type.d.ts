@@ -186,6 +186,15 @@ export type Select = {
     suffixTransition: boolean
     tagType: 'success' | 'info' | 'warning' | 'danger'
     maxCollapseTags: number
+    slots?: {
+      default?: ((...args: any[]) => JSX.Element | string | void) | string
+      header?: ((...args: any[]) => JSX.Element | string | void) | string
+      footer?: ((...args: any[]) => JSX.Element | string | void) | string
+      prefix?: ((...args: any[]) => JSX.Element | string | void) | string
+      empty?: ((...args: any[]) => JSX.Element | string | void) | string
+      tag?: ((...args: any[]) => JSX.Element | string | void) | string
+      loading?: ((...args: any[]) => JSX.Element | string | void) | string
+    }
   }> & {
     option: Array<{
       label?: string

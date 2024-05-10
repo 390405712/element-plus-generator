@@ -93,7 +93,7 @@ export default defineComponent({
             return <ElInputNumber ref={$refs[formOption.formItem.prop]} min={0} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} />
             break;
           case 'select':
-            return <ElSelect ref={$refs[formOption.formItem.prop]} clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} >
+            return <ElSelect ref={$refs[formOption.formItem.prop]} clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}  v-slots={{ ...formOption?.control?.slots }}>
               {formOption?.control?.option instanceof Array ? formOption?.control?.option.map((controlOptionItem) => (
                 <ElOption {...controlOptionItem} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.value} />
               )) : ''}
