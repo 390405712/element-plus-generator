@@ -225,7 +225,7 @@ const Qe = /* @__PURE__ */ D({
         });
       }
       function E(e) {
-        var C, f, M, N, B, j, P, m, R, z, q, L, W, H, K;
+        var C, f, M, N, B, j, P, m, R, z, H, q, L, W, K;
         switch (s[e.formItem.prop] = A(), e.type) {
           case "input":
             return r(Ee, h({
@@ -358,9 +358,9 @@ const Qe = /* @__PURE__ */ D({
           case "date-picker":
           case "date-time-picker":
             const J = {
-              datetimerange: "YYYY-MM-DD hh:mm:ss",
+              datetimerange: "YYYY-MM-DD HH:mm:ss",
               daterange: "YYYY-MM-DD",
-              datetime: "YYYY-MM-DD hh:mm:ss",
+              datetime: "YYYY-MM-DD HH:mm:ss",
               date: "YYYY-MM-DD"
             }[((j = e == null ? void 0 : e.control) == null ? void 0 : j.type) || "date"];
             return r(te, h({
@@ -404,7 +404,7 @@ const Qe = /* @__PURE__ */ D({
               ...(m = e == null ? void 0 : e.control) == null ? void 0 : m.slots
             });
           case "slot":
-            return (z = (R = e == null ? void 0 : e.control) == null ? void 0 : R.slots) != null && z.default && typeof ((L = (q = e == null ? void 0 : e.control) == null ? void 0 : q.slots) == null ? void 0 : L.default) == "function" ? r(p, null, [(H = (W = e.control.slots).default) == null ? void 0 : H.call(W, {
+            return (z = (R = e == null ? void 0 : e.control) == null ? void 0 : R.slots) != null && z.default && typeof ((q = (H = e == null ? void 0 : e.control) == null ? void 0 : H.slots) == null ? void 0 : q.default) == "function" ? r(p, null, [(W = (L = e.control.slots).default) == null ? void 0 : W.call(L, {
               form: a.model,
               data: a.model[e.formItem.prop]
             })]) : l[e.formItem.prop] ? (K = l[e.formItem.prop]) == null ? void 0 : K.call(l, {
@@ -508,7 +508,7 @@ const Xe = /* @__PURE__ */ D({
   var b;
   const l = n.find((a) => a.formItem.prop === y);
   l && ((b = l == null ? void 0 : l.control) != null && b.option) && (l.control.option = v);
-}, ze = (n, y) => n.find((v) => v.formItem.prop === y), qe = (n, y, v, l) => {
+}, ze = (n, y) => n.find((v) => v.formItem.prop === y), He = (n, y, v, l) => {
   if (!Array.isArray(n))
     return [];
   const b = [];
@@ -522,7 +522,7 @@ const Xe = /* @__PURE__ */ D({
       s[_] = u[_];
     }), b.push(s);
   }), b;
-}, Le = (n, y = []) => {
+}, qe = (n, y = []) => {
   const v = {
     input: "输入",
     "input-number": "输入",
@@ -552,10 +552,10 @@ const Xe = /* @__PURE__ */ D({
 }, Ze = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   getFormOption: ze,
-  getOption: qe,
+  getOption: He,
   getTableOption: me,
   setOption: Re,
-  setRequired: Le
+  setRequired: qe
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   Qe as FormGenerator,

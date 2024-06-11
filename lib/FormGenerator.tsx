@@ -144,9 +144,9 @@ export default defineComponent({
           case 'date-picker':
           case 'date-time-picker':
             const formatEnum = {
-              'datetimerange': 'YYYY-MM-DD hh:mm:ss',
+              'datetimerange': 'YYYY-MM-DD HH:mm:ss',
               'daterange': 'YYYY-MM-DD',
-              'datetime': 'YYYY-MM-DD hh:mm:ss',
+              'datetime': 'YYYY-MM-DD HH:mm:ss',
               'date': 'YYYY-MM-DD',
             }
             const formatEnumVal = formatEnum[formOption?.control?.type as keyof typeof formatEnum || 'date']
