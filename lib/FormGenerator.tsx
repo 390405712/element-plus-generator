@@ -8,6 +8,7 @@ import type { Expose } from './element-plus'
 export default defineComponent({
   name: 'FormGenerator',
   setup(props, { expose, attrs, slots, emit }) {
+    console.log(attrs);
     const _attrs = attrs as FormAttrs
     const RefFormGenerator = ref<RefFormGeneratorObj>()
     const $refs: Record<string, Ref<Expose | undefined>> = {}
@@ -87,7 +88,7 @@ export default defineComponent({
         $refs[formOption.formItem.prop] = ref()
         switch (formOption.type) {
           case 'input':
-            return <ElInput ref={$refs[formOption.formItem.prop]} clearable={true} maxlength={formOption?.control?.type === 'textarea' ? 500 :30} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slots }} />
+            return <ElInput ref={$refs[formOption.formItem.prop]} clearable={true} maxlength={formOption?.control?.type === 'textarea' ? 500 :90} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slots }} />
             break;
           case 'input-number':
             return <ElInputNumber ref={$refs[formOption.formItem.prop]} min={0} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} />

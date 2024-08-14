@@ -161,6 +161,7 @@ const Qe = /* @__PURE__ */ D({
     slots: l,
     emit: b
   }) {
+    console.log(v);
     const a = v, u = A(), s = {}, _ = A(!1), g = isNaN(a.column) ? 4 : a.column >= 4 ? a.column : 4, x = {
       submit: () => {
         u.value.validate((t) => {
@@ -231,7 +232,7 @@ const Qe = /* @__PURE__ */ D({
             return r(Ee, h({
               ref: s[e.formItem.prop],
               clearable: !0,
-              maxlength: ((C = e == null ? void 0 : e.control) == null ? void 0 : C.type) === "textarea" ? 500 : 30
+              maxlength: ((C = e == null ? void 0 : e.control) == null ? void 0 : C.type) === "textarea" ? 500 : 90
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (d) => a.model[e.formItem.prop] = d
