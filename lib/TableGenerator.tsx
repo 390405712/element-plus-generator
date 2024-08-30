@@ -79,7 +79,6 @@ export default defineComponent({
         return (
           <ElTable
             ref={RefTableGenerator}
-            stripe={true}
             {..._attrs}
             class={`TableGenerator el-table-${el}`}
             v-slots={{

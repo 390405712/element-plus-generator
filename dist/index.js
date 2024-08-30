@@ -56,8 +56,7 @@ const Je = /* @__PURE__ */ D({
       }
       function k() {
         return r(ae, h({
-          ref: a,
-          stripe: !0
+          ref: a
         }, u, {
           class: `TableGenerator el-table-${_}`
         }), {
