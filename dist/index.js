@@ -241,7 +241,8 @@ const Qe = /* @__PURE__ */ D({
           case "input-number":
             return r(xe, h({
               ref: s[e.formItem.prop],
-              min: 0
+              min: 0,
+              "controls-position": "right"
             }, e == null ? void 0 : e.control, {
               modelValue: a.model[e.formItem.prop],
               "onUpdate:modelValue": (d) => a.model[e.formItem.prop] = d
