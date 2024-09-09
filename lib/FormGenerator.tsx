@@ -4,11 +4,14 @@ import { defineComponent, ref } from 'vue'
 import type { Ref } from 'vue'
 import type { FormAttrs, RefFormGeneratorObj, FormOption } from './type.d'
 import type { Expose } from './element-plus'
+import debounce from './directive'
 
 export default defineComponent({
   name: 'FormGenerator',
+  directives: {
+    debounce:debounce,
+  },
   setup(props, { expose, attrs, slots, emit }) {
-    console.log(attrs);
     const _attrs = attrs as FormAttrs
     const RefFormGenerator = ref<RefFormGeneratorObj>()
     const $refs: Record<string, Ref<Expose | undefined>> = {}
@@ -75,7 +78,7 @@ export default defineComponent({
                             ? <ElButton onClick={form.cancel}>取消</ElButton>
                             : ''
                         }
-                        <ElButton type="primary" onClick={form.submit} loading={_attrs.loading}>确定</ElButton>
+                        <ElButton type="primary" v-debounce onClick={form.submit} loading={_attrs.loading}>确定</ElButton>
                       </>,
                   label: () => ''
                 }}
@@ -179,8 +182,8 @@ export default defineComponent({
       function renderSearchItem() {
         return (
           <>
-            <ElButton type="primary" onClick={form.submit} icon={Search}>搜索</ElButton>
-            <ElButton onClick={form.reset} icon={Refresh}>重置</ElButton>
+            <ElButton v-debounce type="primary" onClick={form.submit} icon={Search}>搜索</ElButton>
+            <ElButton v-debounce onClick={form.reset} icon={Refresh}>重置</ElButton>
             {_attrs.type === 'search' && _attrs.formOption.length > (column - 1)
               ? <><ElButton text type="primary" class={`expandBtn ${more.value ? 'up' : 'down'}`} onClick={() => { setShow(!more.value) }} icon={ArrowUp}>{more.value ? '收起' : '展开'}</ElButton></>
               : ''
