@@ -127,7 +127,7 @@ type Control = {
  */
 export type FormOption = Input | InputNumber | Select | TreeSelect | Cascader | Radio | RadioButton | Checkbox | CheckboxButton | DatePicker | DateTimePicker | TimePicker | Switch | Upload | Slot
 
-type ControlType = 'input' | 'input-number' | 'select' | 'tree-select' | 'cascader' | 'radio' | 'radio-button' | 'checkbox' | 'checkbox-button' | 'date-picker' | 'date-time-picker' | 'time-picker' | 'switch' | 'upload' | 'slot'
+type ControlType = 'input' | 'input-number' | 'select' | 'tree-select' | 'cascader' | 'radio' | 'radio-button' | 'checkbox' | 'checkbox-button' | 'date-picker' | 'date-time-picker' | 'time-picker' | 'switch' | 'upload' | 'slot' | 'select-v2'
 
 export type Input = {
   type: 'input'
@@ -197,6 +197,49 @@ export type Select = {
     }
   }> & {
     option: Array<{
+      label?: string
+      value: string | number,
+      disabled?: boolean,
+      slots?: {
+        default?: ((...args: any[]) => JSX.Element | string | void) | string
+      }
+    }> | Ref<Array<{
+      label?: string
+      value: string | number,
+      disabled?: boolean,
+      slots?: {
+        default?: ((...args: any[]) => JSX.Element | string | void) | string
+      }
+    }>>
+  }
+}
+export type SelectV2 = {
+  type: 'select-v2'
+  show?: boolean
+  formItem: FormItem
+  control?: Control & Partial<SelectProps> & SelectEvents & SelectSlots & Partial<{
+    fitInputWidth: boolean
+    remoteShowSuffix: boolean
+    suffixIcon: (() => JSX.Element | string | void) | string
+    suffixTransition: boolean
+    tagType: 'success' | 'info' | 'warning' | 'danger'
+    maxCollapseTags: number
+    props?: {
+      value?: string
+      label?: string
+      disabled?: boolean
+    }
+    slots?: {
+      default?: ((...args: any[]) => JSX.Element | string | void) | string
+      header?: ((...args: any[]) => JSX.Element | string | void) | string
+      footer?: ((...args: any[]) => JSX.Element | string | void) | string
+      prefix?: ((...args: any[]) => JSX.Element | string | void) | string
+      empty?: ((...args: any[]) => JSX.Element | string | void) | string
+      tag?: ((...args: any[]) => JSX.Element | string | void) | string
+      loading?: ((...args: any[]) => JSX.Element | string | void) | string
+    }
+  }> & {
+    options: Array<{
       label?: string
       value: string | number,
       disabled?: boolean,
@@ -297,6 +340,7 @@ type FormOptionItemObj = {
   'input': Input
   'input-number': InputNumber
   'select': Select
+  'select-v2': SelectV2
   'tree-select': TreeSelect
   'cascader': Cascader
   'radio': Radio

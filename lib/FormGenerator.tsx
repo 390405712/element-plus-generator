@@ -1,4 +1,4 @@
-import { ElButton, ElForm, ElFormItem, ElInput, ElInputNumber, ElSelect, ElOption, ElRadioGroup, ElRadio, ElRadioButton, ElCheckboxGroup, ElCheckbox, ElCheckboxButton, ElDatePicker, ElTimePicker, ElSwitch, ElUpload, ElTreeSelect, ElCascader } from 'element-plus'
+import { ElSelectV2, ElButton, ElForm, ElFormItem, ElInput, ElInputNumber, ElSelect, ElOption, ElRadioGroup, ElRadio, ElRadioButton, ElCheckboxGroup, ElCheckbox, ElCheckboxButton, ElDatePicker, ElTimePicker, ElSwitch, ElUpload, ElTreeSelect, ElCascader } from 'element-plus'
 import { Search, Refresh, ArrowUp } from '@element-plus/icons-vue'
 import { defineComponent, ref } from 'vue'
 import type { Ref } from 'vue'
@@ -102,6 +102,10 @@ export default defineComponent({
                 <ElOption {...controlOptionItem} v-slots={{ ...controlOptionItem?.slots }} key={controlOptionItem.value} />
               )) : ''}
             </ElSelect>
+            break;
+          case 'select-v2':
+            return <ElSelectV2 ref={$refs[formOption.formItem.prop]} clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}  v-slots={{ ...formOption?.control?.slots }}>
+            </ElSelectV2>
             break;
           case 'tree-select':
             return <ElTreeSelect ref={$refs[formOption.formItem.prop]} clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]} v-slots={{ ...formOption?.control?.slots }}></ElTreeSelect>
