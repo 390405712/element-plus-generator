@@ -104,7 +104,7 @@ export default defineComponent({
             </ElSelect>
             break;
           case 'select-v2':
-            return <ElSelectV2 ref={$refs[formOption.formItem.prop]} clearable={true} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}  v-slots={{ ...formOption?.control?.slots }}>
+            return <ElSelectV2 ref={$refs[formOption.formItem.prop]} clearable={true} options={formOption?.control?.option} {...formOption?.control} v-model={_attrs.model[formOption.formItem.prop]}  v-slots={{ ...formOption?.control?.slots }}>
             </ElSelectV2>
             break;
           case 'tree-select':
