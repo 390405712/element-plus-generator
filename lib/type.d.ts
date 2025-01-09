@@ -125,7 +125,7 @@ type Control = {
  * @param formItem form下formItem属性
  * @param control 控件属性
  */
-export type FormOption = Input | InputNumber | Select | TreeSelect | Cascader | Radio | RadioButton | Checkbox | CheckboxButton | DatePicker | DateTimePicker | TimePicker | Switch | Upload | Slot
+export type FormOption = Input | InputNumber | Select | SelectV2 | TreeSelect | Cascader | Radio | RadioButton | Checkbox | CheckboxButton | DatePicker | DateTimePicker | TimePicker | Switch | Upload | Slot
 
 type ControlType = 'input' | 'input-number' | 'select' | 'tree-select' | 'cascader' | 'radio' | 'radio-button' | 'checkbox' | 'checkbox-button' | 'date-picker' | 'date-time-picker' | 'time-picker' | 'switch' | 'upload' | 'slot' | 'select-v2'
 
